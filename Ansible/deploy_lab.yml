@@ -6,7 +6,7 @@
    - common
 
 # Configure the primary domain controller
-#- hosts: pdc
+#- hosts: Domain
 #  roles:
 #   - pdc
 #   - common
