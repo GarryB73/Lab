@@ -1,6 +1,6 @@
 ---
 - name: Install SQL Sever and start services
-  ansible.windows.win_dsc:
+  win_dsc:
     resource_name: SQLSetup
     Action: Install
     UpdateEnabled: True
