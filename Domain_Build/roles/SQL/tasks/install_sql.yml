@@ -36,14 +36,14 @@
     # two options for these normally single option items.
 
     # SQL Service Account
-    SQLSvcAccount_username: "{{ mssql_sqlsvc_account }}"
-    SQLSvcAccount_password: "{{ mssql_sqlsvc_account_pass }}"
+    SQLSvcAccount_username: "sql_svc@test.co.uk"
+    SQLSvcAccount_password: "Pa55word"
     # SQL Agent Service Account
-    AgtSvcAccount_username: "{{ mssql_agentsvc_account }}"
-    AgtSvcAccount_password: "{{ mssql_agentsvc_account_pass }}"
+    AgtSvcAccount_username: "sql_agt@test.co.uk"
+    AgtSvcAccount_password: "Pa55word"
     # SQL Analysis Services Account
-    ASSvcAccount_username: "{{ mssql_assvc_account }}"
-    ASSvcAccount_password: "{{ mssql_assvc_account_pass }}"
+    ASSvcAccount_username: "sql_svc@test.co.uk"
+    ASSvcAccount_password: "Pa55word"
 
     # Used when installing on a network path, comment out 
     # SourceCredential_username: "{{ ansible_user }}"
