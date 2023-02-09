@@ -6,10 +6,10 @@
 #- include: enable_rdp.yml
 
 # Create Domain service Accounts
-- include: create_service_account.yml
+#- include: create_service_account.yml
 
 # Install SQL pre-requisit software
-- include: pre_reqs.yml
+#- include: pre_reqs.yml
 
 # Install SQL server
 - include: install_sql.yml
