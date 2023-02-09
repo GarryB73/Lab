@@ -50,7 +50,7 @@
     # SourceCredential_password: "{{ ansible_password }}"
 
     # System Admins 
-    SQLSysAdminAccounts: "{{ mssql_sysadmin_accounts }}"
+    SQLSysAdminAccounts: "sql_svc@test.co.uk"
     # Analysis Services Admins (if installed)
     ASSysAdminAccounts: "{{ mssql_asadmin_accounts }}"
   tags: install_sql
