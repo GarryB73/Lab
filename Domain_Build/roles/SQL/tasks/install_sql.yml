@@ -52,7 +52,7 @@
     # System Admins 
     SQLSysAdminAccounts: "sql_svc@test.co.uk"
     # Analysis Services Admins (if installed)
-    ASSysAdminAccounts: "{{ mssql_asadmin_accounts }}"
+    ASSysAdminAccounts: "sql_agt@test.co.uk"
   tags: install_sql
 
 # End of win_dsc for SQL Server
