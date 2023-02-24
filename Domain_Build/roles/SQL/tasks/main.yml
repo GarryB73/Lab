@@ -6,7 +6,7 @@
 #- include: create_service_account.yml
 
 # Install SQL pre-requisit software
-- include: pre_reqs.yml
+#- include: pre_reqs.yml
 
 # Install SQL server
-- include: install_sql.yml
+#- include: install_sql.yml

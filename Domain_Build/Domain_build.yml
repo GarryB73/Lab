@@ -22,7 +22,7 @@
    - common
 
 # Domain join and install Exchange server
-- hosts: Exchange
-  roles:
-   - Exchange
-   - common
+#- hosts: Exchange
+#  roles:
+#   - Exchange
+#   - common
