@@ -1,6 +1,6 @@
 ## Terraform
 Main role: Deploy the Virtual Machines
--   Setup the four Windows Servers (Primary Domain Controller, Replica Domain Controller, DHCP, Fileshare)
+-   Setup the Windows Servers (Primary DC, Replicate DC, File Server, Print Server, SQL Server, Sharepoint Server, Exchange Server)
     - Using the vSphere provider:
         - Assign appropriate resources to each machine 
 - Once prepared with appropriate values and the networking is in place: 

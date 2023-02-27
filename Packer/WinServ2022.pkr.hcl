@@ -87,7 +87,7 @@ variable "numsockets" {
 
 variable "os_password" {
   type    = string
-  default = "Password1234"
+  default = "Pa55word"
   description = "The password for the OS user to be used when connecting to the deployed VM"
 }
 
@@ -113,7 +113,7 @@ packer {
   required_plugins {
     vsphere = {
       version = ">= 0.0.1"
-      source = "github.com/hashicorp/vsphere"
+      source = "github.com/hashicorp/packer-plugin-vsphere"
     }
   }
 }
