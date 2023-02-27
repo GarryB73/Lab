@@ -1,5 +1,5 @@
-resource "vsphere_virtual_machine" "_DHCPServer" {
-  name                 = "${var.DHCPServer_name}"
+resource "vsphere_virtual_machine" "_PrtServer" {
+  name                 = "${var.PrtServer_name}"
   folder               = "${var.vsphere_folder}"
   firmware             = "${var.firmware}" 
   resource_pool_id     = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
@@ -10,8 +10,8 @@ resource "vsphere_virtual_machine" "_DHCPServer" {
     adapter_type = "${data.vsphere_virtual_machine.Win2022GUI_template.network_interface_types[0]}"
   }
 
-  num_cpus = "${var.DHCPServer_cpu_num}"
-  memory   = "${var.DHCPServer_mem}"
+  num_cpus = "${var.PrtServer_cpu_num}"
+  memory   = "${var.PrtServer_mem}"
   guest_id = "${data.vsphere_virtual_machine.Win2022GUI_template.guest_id}"
   scsi_type = "${data.vsphere_virtual_machine.Win2022GUI_template.scsi_type}"
 
@@ -27,7 +27,7 @@ resource "vsphere_virtual_machine" "_DHCPServer" {
 
     customize {
       windows_options {
-        computer_name    = "${var.DHCPServer_name}"
+        computer_name    = "${var.PrtServer_name}"
         admin_password   = "${var.winadmin_password}"
         auto_logon       = true
         auto_logon_count = 1
@@ -43,7 +43,7 @@ resource "vsphere_virtual_machine" "_DHCPServer" {
       }
 
       network_interface {
-        ipv4_address    = "${var.DHCPServer_IP}"
+        ipv4_address    = "${var.PrtServer_IP}"
         ipv4_netmask    = "${var.netmask}"
         dns_server_list = ["${var.dns_server}"]
       }

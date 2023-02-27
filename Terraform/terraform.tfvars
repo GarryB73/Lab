@@ -1,45 +1,63 @@
 # vsphere related params
-vsphere_user = "administrator@ajb1.local"
-vsphere_password = "Password1234"
-vsphere_server = "ajb52-vsphere01.ajb1.local"
-vsphere_dc_name = "AJB52-Datacenter"
-vsphere_dscluster = "DatastoreCluster"
-vsphere_compute_cluster = "EsxiClust01"
-vsphere_portgroup_name = "DPortGroup"
-vsphere_folder = "Terraform-VMs"
+vsphere_user = "administrator@vsphere.local"
+vsphere_password = "Pa55word!"
+vsphere_server = "testvc001.vsphere.local"
+vsphere_dc_name = "Datacenter"
+vsphere_dscluster = "Cluster"
+vsphere_compute_cluster = "Cluster"
+vsphere_portgroup_name = "Guests"
+vsphere_folder = "Test"
 vsphere_template_name = "ws2022-Template"
 
 # Which Windows administrator password to set during vm customization
-winadmin_password = "Password1234"
+winadmin_password = "Pa55word"
 
 # Firmware of template
 firmware = "efi"
 
 # Primary Domain Controller settings
-PDC_name = "AJB52-PDC" # hostname
-PDC_IP = "10.175.128.180"
-PDC_cpu_num = 3
-PDC_mem = 6144
+PDC_name = "testdc001" # hostname
+PDC_IP = "192.168.158.10"
+PDC_cpu_num = 2
+PDC_mem = 4096
 
 # Replica Domain Controller settings
-ReplicaDC_name = "AJB52-DCR"
-ReplicaDC_IP = "10.175.128.181"
+ReplicaDC_name = "testdc002"
+ReplicaDC_IP = "192.168.158.11"
 ReplicaDC_cpu_num = 2
 ReplicaDC_mem = 4096
 
-# Fileserver settings
-Fileserver_name = "AJB52-Files"
-Fileserver_IP = "10.175.128.182"
-Fileserver_cpu_num = 2
-Fileserver_mem = 4096
+# Microsoft File Server settings
+FileServer_name = "testfil001"
+FileServer_IP = "192.168.158.12"
+FileServer_cpu_num = 2
+FileServer_mem = 4096
 
-# DHCP Server settings
-DHCPServer_name = "AJB52-DHCP"
-DHCPServer_IP = "10.175.128.183"
-DHCPServer_cpu_num = 2
-DHCPServer_mem = 4096
+# Microsoft Print Server settings
+PrtServer_name = "testprt001"
+PrtServer_IP = "192.168.158.13"
+PrtServer_cpu_num = 2
+PrtServer_mem = 4096
+
+# Microsoft SQL Server settings
+SQLServer_name = "testsql001"
+SQLServer_IP = "192.168.158.14"
+SQLServer_cpu_num = 2
+SQLServer_mem = 4096
+
+# Microsoft SharePoint Server settings
+SPServer_name = "testsp001"
+SPServer_IP = "192.168.158.15"
+SPServer_cpu_num = 2
+SPServer_mem = 4096
+
+# Microsoft Exchange Server settings
+ExcServer_name = "testexc001"
+ExcServer_IP = "192.168.158.16"
+ExcServer_cpu_num = 2
+ExcServer_mem = 4096
 
 # Common network params
 netmask = "26"
-def_gw = "10.175.128.129"
-dns_server = "10.175.128.180"
+def_gw = "192.168.158.2"
+dns_server = "192.168.158.2"
