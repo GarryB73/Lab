@@ -1,10 +1,10 @@
 {   
-    "vcenter_server": "ajb52-vsphere01.ajb1.local",
-    "vcenter_user": "administrator@ajb1.local",
-    "vcenter_password": "Password1234",
-    "vcenter_datacenter": "AJB52-Datacenter",
-    "vcenter_datastore": "ESXI02-Data",
-    "esx_host": "ajb52-esxi01.ajb1.local",
+    "vcenter_server": "testvc001@vsphere.local",
+    "vcenter_user": "administrator@vsphere.local",
+    "vcenter_password": "Pa55word!",
+    "vcenter_datacenter": "Datacenter",
+    "vcenter_datastore": "vsanDatastore",
+    "esx_host": "192.168.158.128",
     "esx_user": "root",
-    "esx_password": "Password1234!"
+    "esx_password": "Pa55word!"
 }
