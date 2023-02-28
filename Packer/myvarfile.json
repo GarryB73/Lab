@@ -1,5 +1,5 @@
 {   
-    "vcenter_server": "testvc001@vsphere.local",
+    "vcenter_server": "192.168.158.200",
     "vcenter_user": "administrator@vsphere.local",
     "vcenter_password": "Pa55word!",
     "vcenter_datacenter": "Datacenter",

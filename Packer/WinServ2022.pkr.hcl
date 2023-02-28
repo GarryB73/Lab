@@ -112,8 +112,8 @@ variable "vm_notes" {
 packer {
   required_plugins {
     vsphere = {
-      version = ">= 1.1.1"
-      source = "github.com/hashicorp/packer-plugin-vsphere"
+      version = ">= 0.0.1"
+      source = "github.com/hashicorp/vsphere"
     }
   }
 }
