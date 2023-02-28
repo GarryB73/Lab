@@ -7,7 +7,7 @@ vsphere_dscluster = "Cluster"
 vsphere_compute_cluster = "Cluster"
 vsphere_portgroup_name = "Guests"
 vsphere_folder = "Test"
-vsphere_template_name = "ws2022-Template"
+vsphere_template_name = "Win2020"
 
 # Which Windows administrator password to set during vm customization
 winadmin_password = "Pa55word"

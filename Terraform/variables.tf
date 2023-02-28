@@ -17,7 +17,7 @@ variable "SPServer_name" {}
 variable "ExcServer_name" {}
 variable "PDC_IP" {}
 variable "ReplicaDC_IP" {}
-variable "Fileserver_IP" {}
+variable "FileServer_IP" {}
 variable "PrtServer_IP" {}
 variable "SQLServer_IP" {}
 variable "SPServer_IP" {}
@@ -27,14 +27,14 @@ variable "def_gw" {}
 variable "dns_server" {}
 variable "PDC_cpu_num" {}
 variable "ReplicaDC_cpu_num" {}
-variable "Fileserver_cpu_num" {}
+variable "FileServer_cpu_num" {}
 variable "PrtServer_cpu_num" {}
 variable "SQLServer_cpu_num" {}
 variable "SPServer_cpu_num" {}
 variable "ExcServer_cpu_num" {}
 variable "PDC_mem" {}
 variable "ReplicaDC_mem" {}
-variable "Fileserver_mem" {} 
+variable "FileServer_mem" {} 
 variable "PrtServer_mem" {}
 variable "SQLServer_mem" {}
 variable "SPServer_mem" {}
