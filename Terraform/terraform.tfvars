@@ -1,7 +1,7 @@
 # vsphere related params
 vsphere_user = "administrator@vsphere.local"
 vsphere_password = "Pa55word!"
-vsphere_server = "testvc001.vsphere.local"
+vsphere_server = "192.168.158.200"
 vsphere_dc_name = "Datacenter"
 vsphere_dscluster = "Cluster"
 vsphere_compute_cluster = "Cluster"
