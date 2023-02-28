@@ -1,5 +1,5 @@
 resource "vsphere_virtual_machine" "_FileServer" {
-  name                 = "${var.Fileserver_name}"
+  name                 = "${var.FileServer_name}"
   folder               = "${var.vsphere_folder}"
   firmware             = "${var.firmware}" 
   resource_pool_id     = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
@@ -10,8 +10,8 @@ resource "vsphere_virtual_machine" "_FileServer" {
     adapter_type = "${data.vsphere_virtual_machine.Win2022GUI_template.network_interface_types[0]}"
   }
 
-  num_cpus = "${var.Fileserver_cpu_num}"
-  memory   = "${var.Fileserver_mem}"
+  num_cpus = "${var.FileServer_cpu_num}"
+  memory   = "${var.FileServer_mem}"
   guest_id = "${data.vsphere_virtual_machine.Win2022GUI_template.guest_id}"
   scsi_type = "${data.vsphere_virtual_machine.Win2022GUI_template.scsi_type}"
 
@@ -27,7 +27,7 @@ resource "vsphere_virtual_machine" "_FileServer" {
 
     customize {
       windows_options {
-        computer_name    = "${var.Fileserver_name}"
+        computer_name    = "${var.FileServer_name}"
         admin_password   = "${var.winadmin_password}"
         auto_logon       = true
         auto_logon_count = 1
@@ -43,7 +43,7 @@ resource "vsphere_virtual_machine" "_FileServer" {
       }
 
       network_interface {
-        ipv4_address    = "${var.Fileserver_IP}"
+        ipv4_address    = "${var.FileServer_IP}"
         ipv4_netmask    = "${var.netmask}"
         dns_server_list = ["${var.dns_server}"]
       }
