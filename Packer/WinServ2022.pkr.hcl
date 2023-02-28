@@ -87,7 +87,7 @@ variable "numsockets" {
 
 variable "os_password" {
   type    = string
-  default = "Pa55word"
+  default = "Password1234"
   description = "The password for the OS user to be used when connecting to the deployed VM"
 }
 
@@ -133,15 +133,15 @@ source "vsphere-iso" "WinServ2022" {
     output_directory = "./build"
   }
   firmware            = "efi"
-  floppy_files        = ["configs/autounattend.xml", "configs/sysprep-autounattend.xml", "scripts/install-vmware-tools-from-iso.ps1"]
+  floppy_files        = ["configs/autounattend.xml", "configs/sysprep-autounattend.xml"]
   guest_os_type       = "windows9Server64Guest"
   host                = "${var.esx_host}"
   insecure_connection = true
   iso_checksum        = "${var.iso_checksum}"
-  iso_paths           = ["[Vault] /ISOs/vmtools/windows.iso"]
+  iso_paths           = ["[vsanDatastore] packer_cache//caff720c675a0670657cb6bcfb438d3b0c664081.iso"]
   iso_url             = "${var.iso_url}"
   network_adapters {
-    network      = "VM Network"
+    network      = "Guests"
     network_card = "vmxnet3"
   }
   notes                     = "${var.vm_notes}"
