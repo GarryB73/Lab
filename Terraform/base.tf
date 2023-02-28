@@ -15,7 +15,7 @@ data "vsphere_datacenter" "dc" {
 # Fetch datastore cluster data
 data "vsphere_datastore_cluster" "datastore_cluster" {
   name          = "${var.vsphere_dscluster}"
-  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+  datacenter_id = "${data.vsphere_datacenter.dc}"
 }
 
 # Fetch compute cluster data
