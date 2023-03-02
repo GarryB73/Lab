@@ -133,7 +133,7 @@ source "vsphere-iso" "WinServ2022" {
     output_directory = "./build"
   }
   firmware            = "efi"
-  floppy_files        = ["configs/autounattend.xml", "configs/sysprep-autounattend.xml"]
+  floppy_files        = ["configs/autounattend.xml", "configs/sysprep-autounattend.xml", "scripts/install-vmware-tools-from-iso.ps1"]
   guest_os_type       = "windows9Server64Guest"
   host                = "${var.esx_host}"
   insecure_connection = true
