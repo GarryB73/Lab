@@ -6,11 +6,11 @@ vsphere_dc_name = "Datacenter"
 vsphere_dscluster = "vsanDatastore"
 vsphere_compute_cluster = "Cluster"
 vsphere_portgroup_name = "Guests"
-vsphere_folder = "Test"
+vsphere_folder = "Terraform-VMs"
 vsphere_template_name = "Win2020"
 
 # Which Windows administrator password to set during vm customization
-winadmin_password = "Pa55word"
+winadmin_password = "Password1234"
 
 # Firmware of template
 firmware = "efi"
