@@ -10,7 +10,7 @@ vsphere_folder = "Terraform-VMs"
 vsphere_template_name = "Win2020"
 
 # Which Windows administrator password to set during vm customization
-winadmin_password = "Password1234"
+winadmin_password = "Pa55word"
 
 # Firmware of template
 firmware = "efi"

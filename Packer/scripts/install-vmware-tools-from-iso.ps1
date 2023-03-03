@@ -1,4 +1,4 @@
-$exe = "E:\setup64.exe"
+$exe = "D:\setup64.exe"
 Write-Output "***** Wait for VMware Tools ISO to be mounted and available"
 do {
     $exeAvailable = Test-Path $exe
