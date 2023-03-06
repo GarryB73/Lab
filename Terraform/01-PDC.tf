@@ -1,13 +1,19 @@
 #
 # Set guest VM's parameters
 #
-resource "vsphere_virtual_machine" "_PDC" {
+resource "vsphere_virtual_machine" "PDC" {
   name                 = "${var.PDC_name}"
+  num_cpus             = "${var.ReplicaDC_cpu_num}"
+  memory               = "${var.ReplicaDC_mem}"
+  datastore_id         = "${data.vsphere_datastore.datastore.id}"
+  resource_pool_id     = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
+  guest_id             = "${data.vsphere_virtual_machine.Win2022GUI_template.guest_id}"
+  scsi_type            = "${data.vsphere_virtual_machine.Win2022GUI_template.scsi_type}"
   folder               = "${var.vsphere_folder}"
   firmware             = "${var.firmware}" 
-  resource_pool_id     = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
-  datastore_cluster_id = "${data.vsphere_datastore.datastore.id}"
-
+#
+# Set network parameters
+#
   network_interface {
     network_id   = "${data.vsphere_network.network.id}"
     adapter_type = "${data.vsphere_virtual_machine.Win2022GUI_template.network_interface_types[0]}"

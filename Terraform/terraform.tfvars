@@ -22,6 +22,6 @@ PDC_cpu_num = 2
 PDC_mem = 4096
 
 # Common network params
-netmask_v4 = "26"
+netmask_v4 = "24"
 def_gw_v4 = "192.168.158.2"
 dns_server_v4 = "192.168.158.2"
