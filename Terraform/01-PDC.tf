@@ -3,8 +3,8 @@
 #
 resource "vsphere_virtual_machine" "PDC" {
   name                 = "${var.PDC_name}"
-  num_cpus             = "${var.ReplicaDC_cpu_num}"
-  memory               = "${var.ReplicaDC_mem}"
+  num_cpus             = "${var.PDC_cpu_num}"
+  memory               = "${var.PDC_mem}"
   datastore_id         = "${data.vsphere_datastore.datastore.id}"
   resource_pool_id     = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
   guest_id             = "${data.vsphere_virtual_machine.Win2022GUI_template.guest_id}"
@@ -19,7 +19,7 @@ resource "vsphere_virtual_machine" "PDC" {
     adapter_type = "${data.vsphere_virtual_machine.Win2022GUI_template.network_interface_types[0]}"
   }
 #
-# Set a predefined 
+# Configure disk 
 #
   disk {
     label            = "disk0"
@@ -49,12 +49,12 @@ resource "vsphere_virtual_machine" "PDC" {
       }
 
       network_interface {
-        ipv4_address    = "${var.PDC_IP_v4}"
-        ipv4_netmask    = "${var.netmask_v4}"
-        dns_server_list = ["${var.dns_server_v4}"]
+        ipv4_address    = "${var.PDC_IPv4}"
+        ipv4_netmask    = "${var.netmask_IPv4}"
+        dns_server_list = ["${var.dns_server_IPv4}"]
       }
 
-      ipv4_gateway = "${var.def_gw_v4}"
+      ipv4_gateway = "${var.def_gw_IPv4}"
     }
   }
 }
