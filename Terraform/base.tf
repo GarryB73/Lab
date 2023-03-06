@@ -1,5 +1,7 @@
+#
 # Base config
-# Vcenter connection parameters
+# vCenter connection parameters
+#
 provider "vsphere" {
   user                 = "${var.vsphere_user}"
   password             = "${var.vsphere_password}"

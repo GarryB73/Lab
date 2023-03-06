@@ -43,12 +43,12 @@ resource "vsphere_virtual_machine" "_PDC" {
       }
 
       network_interface {
-        ipv4_address    = "${var.PDC_IP}"
-        ipv4_netmask    = "${var.netmask}"
-        dns_server_list = ["${var.dns_server}"]
+        ipv4_address    = "${var.PDC_IP_v4}"
+        ipv4_netmask    = "${var.netmask_v4}"
+        dns_server_list = ["${var.dns_server_v4}"]
       }
 
-      ipv4_gateway = "${var.def_gw}"
+      ipv4_gateway = "${var.def_gw_v4}"
     }
   }
 }
