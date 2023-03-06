@@ -2,8 +2,8 @@ resource "vsphere_virtual_machine" "_PDC" {
   name                 = "${var.PDC_name}"
   folder               = "${var.vsphere_folder}"
   firmware             = "${var.firmware}" 
-  resource_pool_id     = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
-  datastore_cluster_id = "${data.vsphere_datastore.datastore.id}"
+  resource_pool_id     = "${var.vsphere_compute_cluster}"
+  datastore_cluster_id = "${var.vsphere_dscluster}"
 
   network_interface {
     network_id   = "${data.vsphere_network.network.id}"
