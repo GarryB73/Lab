@@ -26,7 +26,7 @@ PDC_IPv4 = "192.168.158.10"
 PDC_cpu_num = 2
 PDC_mem = 4096
 #
-# Common network params
+# Common network parameters
 #
 netmask_IPv4 = "24"
 def_gw_IPv4 = "192.168.158.2"

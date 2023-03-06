@@ -19,7 +19,7 @@ resource "vsphere_virtual_machine" "PDC" {
     adapter_type = "${data.vsphere_virtual_machine.Win2022GUI_template.network_interface_types[0]}"
   }
 #
-# Configure disk 
+# Configure boot disk
 #
   disk {
     label            = "disk0"
@@ -27,7 +27,26 @@ resource "vsphere_virtual_machine" "PDC" {
     eagerly_scrub    = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.0.eagerly_scrub}"
     thin_provisioned = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.0.thin_provisioned}"
   }
-
+#
+# Configure secound and third data disk
+#
+  disk {
+    label           = "disk1"
+    unit_number     = 1
+    size            = 50
+    eagerly_scrub    = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.1.eagerly_scrub}"
+    thin_provisioned = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.1.thin_provisioned}"
+  }
+  disk {
+    label           = "disk2"
+    unit_number     = 2
+    size            = 50
+    eagerly_scrub    = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.2.eagerly_scrub}"
+    thin_provisioned = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.2.thin_provisioned}"
+  }
+  #
+  #
+  #
   clone {
     template_uuid = "${data.vsphere_virtual_machine.Win2022GUI_template.id}"
 
