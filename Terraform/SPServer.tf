@@ -33,7 +33,7 @@ resource "vsphere_virtual_machine" "SPServer" {
   disk {
     label           = "disk1"
     unit_number     = 1
-    size            = 100
+    size            = 50
   }
   #
   # Clone template and configure VM
