@@ -45,7 +45,7 @@ resource "vsphere_virtual_machine" "PDC" {
     thin_provisioned = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.2.thin_provisioned}"
   }
   #
-  #
+  # Clone template and configure VM
   #
   clone {
     template_uuid = "${data.vsphere_virtual_machine.Win2022GUI_template.id}"
