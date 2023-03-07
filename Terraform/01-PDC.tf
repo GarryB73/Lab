@@ -18,23 +18,26 @@ resource "vsphere_virtual_machine" "PDC" {
     network_id   = "${data.vsphere_network.network.id}"
     adapter_type = "${data.vsphere_virtual_machine.Win2022GUI_template.network_interface_types[0]}"
   }
-#
-# Configure boot disk
-#
+  #
+  # Provison Active Directory OS boot drive
+  #
   disk {
     label            = "disk0"
     size             = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.0.size}"
     eagerly_scrub    = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.0.eagerly_scrub}"
     thin_provisioned = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.0.thin_provisioned}"
   }
-#
-# Configure secound and third data disk
-#
+  #
+  # Provision Active Directory xxxx drive
+  #
   disk {
     label           = "disk1"
     unit_number     = 1
     size            = 50
   }
+  #
+  # Provsion Active Directory xxxx drive
+  #
   disk {
     label           = "disk2"
     unit_number     = 2
