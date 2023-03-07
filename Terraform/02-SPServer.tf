@@ -1,7 +1,7 @@
 #
 # Set guest VM's parameters
 #
-resource "vsphere_virtual_machine" "PDC" {
+resource "vsphere_virtual_machine" "SPServer" {
   name                 = "${var.SPServer_name}"
   num_cpus             = "${var.SPServer_cpu_num}"
   memory               = "${var.SPServer_mem}"

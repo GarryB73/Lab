@@ -1,7 +1,7 @@
 #
 # Set guest VM's parameters
 #
-resource "vsphere_virtual_machine" "PDC" {
+resource "vsphere_virtual_machine" "SQLServer" {
   name                 = "${var.SQLServer_name}"
   num_cpus             = "${var.SQLServer_cpu_num}"
   memory               = "${var.SQLServer_mem}"
