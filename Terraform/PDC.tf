@@ -1,10 +1,10 @@
 #
 # Set guest VM's parameters
 #
-resource "vsphere_virtual_machine" "SQLServer" {
-  name                 = "${var.SQLServer_name}"
-  num_cpus             = "${var.SQLServer_cpu_num}"
-  memory               = "${var.SQLServer_mem}"
+resource "vsphere_virtual_machine" "PDC" {
+  name                 = "${var.PDC_name}"
+  num_cpus             = "${var.PDC_cpu_num}"
+  memory               = "${var.PDC_mem}"
   datastore_id         = "${data.vsphere_datastore.datastore.id}"
   resource_pool_id     = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
   guest_id             = "${data.vsphere_virtual_machine.Win2022GUI_template.guest_id}"
@@ -19,7 +19,7 @@ resource "vsphere_virtual_machine" "SQLServer" {
     adapter_type = "${data.vsphere_virtual_machine.Win2022GUI_template.network_interface_types[0]}"
   }
   #
-  # Provision SQL OS boot disk
+  # Provison Active Directory OS boot drive
   #
   disk {
     label            = "disk0"
@@ -28,15 +28,15 @@ resource "vsphere_virtual_machine" "SQLServer" {
     thin_provisioned = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.0.thin_provisioned}"
   }
   #
-  # Provision SQL data drive
+  # Provision Active Directory xxxx drive
   #
   disk {
     label           = "disk1"
     unit_number     = 1
-    size            = 100
+    size            = 50
   }
   #
-  # Provision SQL log drive
+  # Provsion Active Directory xxxx drive
   #
   disk {
     label           = "disk2"
@@ -51,7 +51,7 @@ resource "vsphere_virtual_machine" "SQLServer" {
 
     customize {
       windows_options {
-        computer_name    = "${var.SQLServer_name}"
+        computer_name    = "${var.PDC_name}"
         admin_password   = "${var.winadmin_password}"
         auto_logon       = true
         auto_logon_count = 1
@@ -67,7 +67,7 @@ resource "vsphere_virtual_machine" "SQLServer" {
       }
 
       network_interface {
-        ipv4_address    = "${var.SQLServer_IPv4}"
+        ipv4_address    = "${var.PDC_IPv4}"
         ipv4_netmask    = "${var.netmask_IPv4}"
         dns_server_list = ["${var.dns_server_IPv4}"]
       }

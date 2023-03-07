@@ -21,22 +21,29 @@ firmware = "efi"
 #
 # Primary Domain Controller settings
 #
-PDC_name = "testdc001" # hostname
+PDC_name = "testdc001"
 PDC_IPv4 = "192.168.158.10"
 PDC_cpu_num = 2
 PDC_mem = 4096
 #
 # Microsoft SQL Server settings
 #
-SQLServer_name = "testsql001"
-SQLServer_IPv4 = "192.168.158.14"
-SQLServer_cpu_num = 2
-SQLServer_mem = 4096
+SQLServer1_name = "testsql001"
+SQLServer1_IPv4 = "192.168.158.14"
+SQLServer1_cpu_num = 2
+SQLServer1_mem = 4096
+#
+# Microsoft SQL Server settings
+#
+SQLServer2_name = "testsql002"
+SQLServer2_IPv4 = "192.168.158.15"
+SQLServer2_cpu_num = 2
+SQLServer2_mem = 4096
 #
 # Microsoft SharePoint Server settings
 #
 SPServer_name = "testsp001"
-SPServer_IPv4 = "192.168.158.15"
+SPServer_IPv4 = "192.168.158.16"
 SPServer_cpu_num = 2
 SPServer_mem = 4096
 #
