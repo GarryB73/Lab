@@ -1,9 +1,9 @@
 ---
+# Initiate and formate data disks
+- include: initiate_disks.yml
+
 # Joing server to the domain
 - include: domain_join.yml
-
-# Create Domain service Accounts
-#- include: create_service_account.yml
 
 # Install SQL pre-requisit software
 #- include: pre_reqs.yml
