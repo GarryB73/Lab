@@ -28,17 +28,10 @@ PDC_mem = 4096
 #
 # Microsoft SQL Server settings
 #
-SQLServer1_name = "testsql001"
-SQLServer1_IPv4 = "192.168.158.14"
-SQLServer1_cpu_num = 2
-SQLServer1_mem = 4096
-#
-# Microsoft SQL Server settings
-#
-SQLServer2_name = "testsql002"
-SQLServer2_IPv4 = "192.168.158.15"
-SQLServer2_cpu_num = 2
-SQLServer2_mem = 4096
+SQLServer_name = "testsql001"
+SQLServer_IPv4 = "192.168.158.14"
+SQLServer_cpu_num = 2
+SQLServer_mem = 4096
 #
 # Microsoft SharePoint Server settings
 #
