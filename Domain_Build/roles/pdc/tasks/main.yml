@@ -1,4 +1,26 @@
 ---
+- name: Initialize disk 1
+  community.windows.win_initialize_disk:
+    disk_number: 1
+
+- name: Full format the newly created partition as NTFS and label it
+  community.windows.win_format:
+    drive_letter: D
+    file_system: NTFS
+    new_label: Formatted
+    full: True
+
+- name: Initialize disk 2
+  community.windows.win_initialize_disk:
+    disk_number: 2
+
+- name: Full format the newly created partition as NTFS and label it
+  community.windows.win_format:
+    drive_letter: E
+    file_system: NTFS
+    new_label: Formatted
+    full: True
+
 - name: Change the hostname
   ansible.windows.win_hostname:
     name: "{{ primary_domain_controller }}"
