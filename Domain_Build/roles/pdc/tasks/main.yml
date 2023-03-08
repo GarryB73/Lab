@@ -13,7 +13,7 @@
   community.windows.win_format:
     drive_letter: D
     file_system: NTFS
-    new_label: Active Directory
+    new_label: Data1
     full: True
 
 - name: Initialize disk 2
@@ -30,7 +30,7 @@
   community.windows.win_format:
     drive_letter: E
     file_system: NTFS
-    new_label: System State
+    new_label: Data2
     full: True
 
 - name: Change the hostname
