@@ -101,3 +101,37 @@
     path: "ou={{ Member_Servers }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     Description: "Microsoft SQL Servers OU"
     Ensure: present
+
+# Domain User and Service Account Creation
+# Create multiple users for Domain and add to respective groups
+- name: Create administrator Account
+  community.windows.win_domain_user:
+    name: bakerg_admin
+    firstname: Garry
+    surname: Baker
+    password: Pa55word
+    Ensure: present
+    path: "ou={{ Administrator }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
+    groups: 
+    - Employees
+    - Domain Users
+    - Domain Admins
+    - Enterprise Admins
+    domain_username: "{{ domain_admin_username }}"
+    domain_password: "{{ domain_admin_password }}"
+    domain_server: "{{ primary_domain_controller }}"
+
+- name: Create Employee account
+  community.windows.win_domain_user:
+    name: bakerg
+    firstname: Garry
+    surname: Baker
+    password: Pa55word
+    Ensure: present
+    path: "ou={{ Users }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
+    groups: 
+    - Employees
+    - Domain Users
+    domain_username: "{{ domain_admin_username }}"
+    domain_password: "{{ domain_admin_password }}"
+    domain_server: "{{ primary_domain_controller }}"

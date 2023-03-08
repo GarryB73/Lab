@@ -20,18 +20,6 @@
 #
 # - include: dhcp.yml
 #
-# Configure Active Directory OUs
+# Configure Active Directory Groups, OUs, Service Account and Users
 #
-#- include: ous.yml
-#
-# Configure Active Directory Groups
-#
-- include: groups.yml
-#
-# Configure Active Directory Service Accounts
-#
-- include: service_accounts.yml
-#
-# Configure Active Directory User Acconts
-#
-- include: users.yml
+- include: active_directory.yml
