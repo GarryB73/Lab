@@ -3,6 +3,4 @@
 - hosts: Domain
   roles:
    - PDC
-#   - domain_gpos
-   - domain_userdata
 #   - common

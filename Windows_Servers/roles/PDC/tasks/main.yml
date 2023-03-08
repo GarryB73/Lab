@@ -22,7 +22,7 @@
 #
 # Configure Active Directory OUs
 #
-- include: ous.yml
+#- include: ous.yml
 #
 # Configure Active Directory Groups
 #
