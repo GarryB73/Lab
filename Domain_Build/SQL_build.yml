@@ -1,0 +1,6 @@
+---
+# Domain join and install sql server
+- hosts: SQL
+  roles:
+   - SQL
+#   - common
