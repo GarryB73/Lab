@@ -3,23 +3,21 @@
 - hosts: Domain
   roles:
    - pdc
-   - common
+   - domain_gpos
    - domain_userdata
+#   - common
 #   - domain_dns
 #   - domain_dhcp
-#   - pdc_gpos
 
 # Domain join and install sql server
 - hosts: SQL
   roles:
    - SQL
-   - common
 
 # Domain join and install Sharepoint Server
 - hosts: Sharepoint
   roles:
    - Sharepoint
-   - common
 
 # Domain join and install Exchange server
 #- hosts: Exchange
