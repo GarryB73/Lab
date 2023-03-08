@@ -1,6 +1,0 @@
----
-# Joing server to the domain
-- include: domain_joined.yml
-
-# Create Domain service Accounts
-#- include: create_service_account.yml

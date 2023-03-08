@@ -1,0 +1,12 @@
+---
+# Initiate and formate data disks
+- include: initiate_disks.yml
+
+# Joing server to the domain
+- include: domain_join.yml
+
+# Install SQL pre-requisit software
+#- include: pre_reqs.yml
+
+# Install SQL server
+#- include: install_sql.yml

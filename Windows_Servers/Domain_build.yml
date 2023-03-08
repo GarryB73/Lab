@@ -1,0 +1,8 @@
+---
+# Configure the primary domain controller
+- hosts: Domain
+  roles:
+   - PDC
+#   - domain_gpos
+   - domain_userdata
+#   - common
