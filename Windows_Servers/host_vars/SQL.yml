@@ -1,5 +1,5 @@
 ---
-mssql_installation_path: C:\SQLInstall
+mssql_installation_path: C:\Software
 mssql_drive: D
 mssql_userdbvol_name: testdb
 mssql_port: 1433
