@@ -2,7 +2,6 @@
 #
 # Install SQL Developer Edition
 #
-
 # Load required powershell modules
 - name: Powershell | Check for SQLServer DSC Powershell module
   win_psmodule:

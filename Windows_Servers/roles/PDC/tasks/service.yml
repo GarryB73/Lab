@@ -17,6 +17,7 @@
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups:
       - Domain Users
+      - SQL_LocalAdmin
     domain_username: "{{ domain_admin_username }}"
     domain_password: "{{ domain_admin_password }}"
     domain_server: "{{ primary_domain_controller }}"
@@ -38,6 +39,7 @@
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups:
       - Domain Users
+      - SQL_LocalAdmin
     domain_username: "{{ domain_admin_username }}"
     domain_password: "{{ domain_admin_password }}"
     domain_server: "{{ primary_domain_controller }}"
