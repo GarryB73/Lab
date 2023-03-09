@@ -1,4 +1,4 @@
-# This module also typically throws this error fpr all failure conditions:
+# This module also typically throws this error for all failure conditions:
 # PowerShell DSC resource MSFT_SqlSetup  failed to execute Set-TargetResource functionality with error message: 
 # System.Exception: Test-TargetResource returned false after calling Set-TargetResource.
 #

@@ -1,7 +1,7 @@
 # Path to installation media
-mssql_installation_path: C:\SQLInstall
+mssql_installation_path: D:\SQLInstall
 mssql_instance_name: Test
-mssql_drive: C
+mssql_drive: D
 mssql_userdbvol_name: testdb
 mssql_port: 1433
 mssql_sqlsvc_account: test\sql_svc
@@ -17,8 +17,8 @@ mssql_instance_path: "C:\\Program Files\\Microsoft SQL Server\\{{ mssql_instance
 mssql_sqlinstalldata_path: "{{ mssql_db_accesspath }}\\{{mssql_instance_name }}"
 mssql_sqluserdata_path: "{{ mssql_db_accesspath }}\\{{mssql_instance_name }}"
 mssql_sqluserlog_path: "{{ mssql_logs_accesspath }}\\{{mssql_instance_name }}"
-mssql_sqltempDB_path: "C:\\TempDBFiles\\Data\\{{mssql_instance_name }}"
-mssql_sqltempDBlog_path: "C:\\TempDBFiles\\Log\\{{mssql_instance_name }}"
+mssql_sqltempDB_path: "E:\\TempDBFiles\\Data\\{{mssql_instance_name }}"
+mssql_sqltempDBlog_path: "E:\\TempDBFiles\\Log\\{{mssql_instance_name }}"
 
 # security mode - SQL indicates mixed-mode auth, while Windows indicates Windows Auth.
 mssql_security_mode: sql
