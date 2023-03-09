@@ -22,4 +22,18 @@
 #
 # Configure Active Directory Groups, OUs, Service Account and Users
 #
-- include_tasks: active_directory.yml
+# Create Active Directory Organisation Units
+#
+- include_tasks: ous.yml
+#
+# Create Active Directory Groups
+#
+- include_tasks: groups.yml
+#
+# Create Active Directory Service Accounts
+#
+- include_tasks: service.yml
+#
+# Create Active Directory Users
+#
+- include_tasks: users.yml
