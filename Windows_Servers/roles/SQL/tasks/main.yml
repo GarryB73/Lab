@@ -12,4 +12,6 @@
 #- include_tasks: pre_reqs.yml
 
 # Install SQL server
-- include_tasks: install_sql.yml
+tasks:
+- name: Run ps1
+  script: Install-SqlServer.ps1
