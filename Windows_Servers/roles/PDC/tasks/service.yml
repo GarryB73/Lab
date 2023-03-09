@@ -10,8 +10,8 @@
     firstname: "{{ mssql_instance_name }}"
     surname: SQLSvc
     password: "{{ mssql_sqlsvc_account_pass }}"
-    #password_never_expires: yes
-    #user_cannot_change_password: yes
+    password_never_expires: true
+    user_cannot_change_password: true
     description: "SQL Service account for {{ sql_server }}\\{{ mssql_instance_name }}"
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
@@ -122,7 +122,7 @@
     firstname: SharePoint Crawl
     surname: Service Account
     password: Pa55word
-    escription: SharePoint Crawl Service Account
+    description: SharePoint Crawl Service Account
     #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
