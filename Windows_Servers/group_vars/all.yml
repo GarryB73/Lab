@@ -22,7 +22,7 @@ sp_server: "testsp001"
 fqdn_primary_domain_controller: "{{ primary_domain_controller }}.{{ domain }}"
 fqdn_exc_server: "{{ exchange_server }}.{{ domain }}"
 fqdn_sql_server: "{{ sql_server }}.{{ domain }}"
-fqdn_sp_server1: "{{ sp_server }}.{{ domain }}"
+fqdn_sp_server: "{{ sp_server }}.{{ domain }}"
 
 # AD OU Settings
 Service_Accounts: "Service Accounts"
