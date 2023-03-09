@@ -6,7 +6,10 @@
 - include_tasks: domain_join.yml
 
 # Install SQL pre-requisit software
-- include_tasks: pre_reqs.yml
+#
+#  ************ need to add a section to copy SQL software from local repo and extract *************
+#
+#- include_tasks: pre_reqs.yml
 
 # Install SQL server
 - include_tasks: install_sql.yml
