@@ -1,5 +1,48 @@
 ---
----
+#
+# Domain Service Account Creation
+#
+# Setup SQL Server Service Account
+#
+- name: Create SQL Service Account
+  community.windows.win_domain_user:
+    name: "{{ mssql_sqlsvc_account }}"
+    firstname: "{{ mssql_instance_name }}"
+    surname: SQLSvc
+    password: "{{ mssql_sqlsvc_account_pass }}"
+    #password_never_expires: yes
+    #user_cannot_change_password: yes
+    description: "SQL Service account for {{ sql_server }}\\{{ mssql_instance_name }}"
+    state: present
+    path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
+    groups:
+      - Domain Users
+    domain_username: "{{ domain_admin_username }}"
+    domain_password: "{{ domain_admin_password }}"
+    domain_server: "{{ primary_domain_controller }}"
+  tags: service_account
+#  delegate_to: "{{ primary_domain_controller }}"
+#
+# Setup SQL Server Agent Service Account
+#
+- name: Create SQL Server Agent Service Account
+  community.windows.win_domain_user:
+    name: "{{ mssql_agentsvc_account }}"
+    firstname: "{{ mssql_instance_name }}"
+    surname: AgentSvc
+    password: "{{ mssql_agentsvc_account_pass }}"
+    #password_never_expires: yes
+    #user_cannot_change_password: yes
+    description: "SQL Agent service account for {{ sql_server }}\\{{ mssql_instance_name }}"
+    state: present
+    path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
+    groups:
+      - Domain Users
+    domain_username: "{{ domain_admin_username }}"
+    domain_password: "{{ domain_admin_password }}"
+    domain_server: "{{ primary_domain_controller }}"
+  tags: service_account
+  #delegate_to: "{{ primary_domain_controller }}"
 #
 # Create SQL Server Farm Service Accounts
 #
@@ -9,9 +52,9 @@
     firstname: SharePoint Farm
     surname: Service Account
     password: Pa55word
-    Description: SharePoint Farm Service Account
-    PasswordNeverExpires: yes
-    user_cannot_change_password: yes
+    description: SharePoint Farm Service Account
+    #PasswordNeverExpires: true
+    #user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -27,8 +70,8 @@
     firstname: SharePoint Admin
     surname: Service Account
     password: Pa55word
-    Description: SharePoint Admin Service Account
-    PasswordNeverExpires: True
+    description: SharePoint Admin Service Account
+    #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -47,8 +90,8 @@
     firstname: SharePoint Pool
     surname: Service Account
     password: Pa55word
-    Description: SharePoint Pool Service Account
-    PasswordNeverExpires: True
+    description: SharePoint Pool Service Account
+    #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -63,8 +106,8 @@
     firstname: SharePoint Services
     surname: Service Account
     password: Pa55word
-    Description: SharePoint Services Account
-    PasswordNeverExpires: True
+    description: SharePoint Services Account
+    #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -79,8 +122,8 @@
     firstname: SharePoint Crawl
     surname: Service Account
     password: Pa55word
-    Description: SharePoint Crawl Service Account
-    PasswordNeverExpires: True
+    escription: SharePoint Crawl Service Account
+    #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -95,8 +138,8 @@
     firstname: SharePoint search
     surname: Service Account
     password: Pa55word
-    Description: SharePoint search Service Account
-    PasswordNeverExpires: True
+    description: SharePoint search Service Account
+    #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -113,8 +156,8 @@
     firstname: SharePoint My Site Pool
     surname: Service Account
     password: Pa55word
-    Description: SharePoint MySitePool Service Account
-    PasswordNeverExpires: True
+    description: SharePoint MySitePool Service Account
+    #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -129,8 +172,8 @@
     firstname: SharePoint User Profile Sync
     surname: Service Account
     password: Pa55word
-    Description: SharePoint User Profile Sync Service Account
-    PasswordNeverExpires: True
+    description: SharePoint User Profile Sync Service Account
+    #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -146,8 +189,8 @@
     firstname: SharePoint Workflow Manager
     surname: Service Account
     password: Pa55word
-    Description: SharePoint Workflow Manager Service Account
-    PasswordNeverExpires: True
+    description: SharePoint Workflow Manager Service Account
+    #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -164,8 +207,8 @@
     firstname: SharePoint Portal Super User
     surname: Service Account
     password: Pa55word
-    Description: SharePoint Portal Super User
-    PasswordNeverExpires: True
+    description: SharePoint Portal Super User
+    #PasswordNeverExpires: True
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -180,8 +223,8 @@
     firstname: SharePoint Portal Super Reader
     surname: Service Account
     password: Pa55word
-    Description: SharePoint Super Reader
-    password_never_expires: yes
+    description: SharePoint Super Reader
+    #password_never_expires: yes
     user_cannot_change_password: yes
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
@@ -190,46 +233,3 @@
     domain_username: "{{ domain_admin_username }}"
     domain_password: "{{ domain_admin_password }}"
     domain_server: "{{ primary_domain_controller }}"
-
-#
-# Domain Service Account Creation
-#
-# Setup service accounts for SQL Server
-#
-- name: Create SQL Service Account
-  community.windows.win_domain_user:
-    name: "{{ mssql_sqlsvc_account }}"
-    firstname: "{{ mssql_instance_name }}"
-    surname: SQLSvc
-    password: "{{ mssql_sqlsvc_account_pass }}"
-    password_never_expires: yes
-    user_cannot_change_password: yes
-    description: "SQL Service account for {{ sql_server }}\\{{ mssql_instance_name }}"
-    state: present
-    path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
-    groups:
-      - Domain Users
-    domain_username: "{{ domain_admin_username }}"
-    domain_password: "{{ domain_admin_password }}"
-    domain_server: "{{ primary_domain_controller }}"
-  tags: service_account
-#  delegate_to: "{{ primary_domain_controller }}"
-
-- name: Create SQL Server Agent Service Account
-  community.windows.win_domain_user:
-    name: "{{ mssql_agentsvc_account }}"
-    firstname: "{{ mssql_instance_name }}"
-    surname: AgentSvc
-    password: "{{ mssql_agentsvc_account_pass }}"
-    password_never_expires: yes
-    user_cannot_change_password: yes
-    description: "SQL Agent service account for {{ sql_server }}\\{{ mssql_instance_name }}"
-    state: present
-    path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
-    groups:
-      - Domain Users
-    domain_username: "{{ domain_admin_username }}"
-    domain_password: "{{ domain_admin_password }}"
-    domain_server: "{{ primary_domain_controller }}"
-  #delegate_to: "{{ primary_domain_controller }}"
-  tags: service_account

@@ -7,7 +7,7 @@
     firstname: Garry
     surname: Baker
     password: Pa55word
-    Ensure: present
+    #ensure: present
     path: "ou={{ Administrator }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
     - Employees
@@ -24,7 +24,7 @@
     firstname: Garry
     surname: Baker
     password: Pa55word
-    Ensure: present
+    #ensure: present
     path: "ou={{ Users }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
     - Employees
