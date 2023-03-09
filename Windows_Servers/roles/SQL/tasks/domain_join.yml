@@ -1,9 +1,19 @@
 ---
 - name: change DNS server
-  win_dns_client:
-    adapter_names: '*'
+  ansible.windows.win_dns_client:
+    adapter_names: 'Ethernet'
     ipv4_addresses: 
-      - "{{ groups['primary_domain_controller'][0] }}"
+      - "{{ PDC }}"
+      - 192.168.158.2
+#
+# Set IPv6 DNS Servers
+#
+#- name: Set IPv6 DNS servers on the adapter named Ethernet
+#  ansible.windows.win_dns_client:
+#    adapter_names: Ethernet
+#    dns_servers:
+#    - '2001:db8::2'
+#    - '2001:db8::3'
 
 - name: Change the hostname
   ansible.windows.win_hostname:
