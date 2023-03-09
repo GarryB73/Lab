@@ -36,3 +36,4 @@ mssql_sqlsvc_account: sql_svc
 mssql_agentsvc_account: sql_agt
 mssql_instance_name: Test
 mssql_sqlsvc_account_pass: "Pa55word"
+mssql_agentsvc_account_pass: "Pa55word"
