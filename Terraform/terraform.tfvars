@@ -40,6 +40,13 @@ SPServer_IPv4 = "192.168.158.16"
 SPServer_cpu_num = 2
 SPServer_mem = 4096
 #
+# Microsoft Exchange Server settings
+#
+EXCServer_name = "testexc001"
+EXCServer_IPv4 = "192.168.158.17"
+EXCServer_cpu_num = 2
+EXCServer_mem = 4096
+#
 # Common network parameters
 #
 netmask_IPv4 = "24"

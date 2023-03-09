@@ -1,4 +1,0 @@
-# Install SQL Server
-- hosts: SQL
-  roles:
-   - SQL

@@ -4,7 +4,7 @@
     adapter_names: '*'
     ipv4_addresses: 
       - "{{ groups['pdc'][0] }}"
-      #
+#
 # Set IPv6 DNS Servers
 #
 #- name: Set IPv6 DNS servers on the adapter named Ethernet
@@ -16,7 +16,7 @@
 
 - name: Change the hostname
   ansible.windows.win_hostname:
-    name: "{{ sp_server }}"
+    name: "{{ exc_server }}"
   register: res
 
 - name: Reboot
@@ -26,7 +26,7 @@
 - name: join domain
   win_domain_membership:
     dns_domain_name: "{{ domain }}"
-    domain_ou_path: "ou=Sharepoint,ou=Servers, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
+    domain_ou_path: "ou=Exchange,ou=Servers, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     domain_admin_user: "{{ domain_admin }}"
     domain_admin_password: "{{ domain_admin_password }}"
     state: domain

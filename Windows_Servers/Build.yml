@@ -9,3 +9,15 @@
 - hosts: SQL
   roles:
    - SQL
+#   
+# Domain join and install Sharepoint Server
+#
+- hosts: Sharepoint
+  roles:
+   - Sharepoint
+#
+# Domain join and install Exchange server
+#
+- hosts: Exchange
+  roles:
+   - Exchange

@@ -1,5 +1,0 @@
----
-# Domain join and install Sharepoint Server
-- hosts: Sharepoint
-  roles:
-   - Sharepoint

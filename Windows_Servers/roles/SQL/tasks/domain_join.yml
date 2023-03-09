@@ -1,10 +1,9 @@
 ---
 - name: change DNS server
-  ansible.windows.win_dns_client:
-    adapter_names: 'Ethernet'
+  win_dns_client:
+    adapter_names: '*'
     ipv4_addresses: 
-      - "{{ PDC }}"
-      - 192.168.158.2
+      - "{{ groups['pdc'][0] }}"
 #
 # Set IPv6 DNS Servers
 #

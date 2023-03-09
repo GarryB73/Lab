@@ -18,11 +18,13 @@ primary_domain_controller: "testdc001"
 exchange_server: "testexc001"
 sql_server: "testsql001"
 sp_server: "testsp001"
+exc_server: "testexc001"
 
 fqdn_primary_domain_controller: "{{ primary_domain_controller }}.{{ domain }}"
 fqdn_exc_server: "{{ exchange_server }}.{{ domain }}"
 fqdn_sql_server: "{{ sql_server }}.{{ domain }}"
 fqdn_sp_server: "{{ sp_server }}.{{ domain }}"
+fqdn_exc_server: "{{ exc_server }}.{{ domain }}"
 
 # AD OU Settings
 Service_Accounts: "Service Accounts"
