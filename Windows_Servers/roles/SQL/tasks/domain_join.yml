@@ -3,7 +3,7 @@
   win_dns_client:
     adapter_names: '*'
     ipv4_addresses: 
-      - "{{ groups['pdc'][0] }}"
+      - "{{ groups['PDC'][0] }}"
 
 - name: Change the hostname
   ansible.windows.win_hostname:
