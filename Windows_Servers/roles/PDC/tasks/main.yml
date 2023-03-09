@@ -2,11 +2,11 @@
 #
 # Initiate data disks
 #
-- include: initiate_disks.yml
+- include_tasks: initiate_disks.yml
 #
 # Build Microsoft Active Directory
 #
-- include: build_domain.yml
+- include_tasks: build_domain.yml
 #
 # Configure Group Policys
 #
@@ -22,4 +22,4 @@
 #
 # Configure Active Directory Groups, OUs, Service Account and Users
 #
-- include: active_directory.yml
+- include_tasks: active_directory.yml
