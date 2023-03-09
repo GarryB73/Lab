@@ -1,7 +1,7 @@
 #
 # Set guest VM's parameters
 #
-resource "vsphere_virtual_machine" "SQLServer" {
+resource "vsphere_virtual_machine" "EXCServer" {
   name                 = "${var.EXCServer_name}"
   num_cpus             = "${var.EXCServer_cpu_num}"
   memory               = "${var.EXCServer_mem}"
