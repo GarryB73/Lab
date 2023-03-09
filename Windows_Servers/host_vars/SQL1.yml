@@ -1,12 +1,8 @@
-# Path to installation media
+---
 mssql_installation_path: D:\SQLInstall
-mssql_instance_name: Test
 mssql_drive: D
 mssql_userdbvol_name: testdb
 mssql_port: 1433
-mssql_sqlsvc_account: test\sql_svc
-mssql_sqlsvc_account_pass: "Pa55word"
-mssql_agentsvc_account: test\sql_agt
 mssql_agentsvc_account_pass: "Pa55word"
 mssql_userdbvol_path: "{{ mssql_drive }}:\\{{ mssql_userdbvol_name }}"
 mssql_db_accesspath: "{{ mssql_userdbvol_path }}\\DatabaseFiles"

@@ -29,3 +29,10 @@ Service_Accounts: "Service Accounts"
 Administrator: "Admins"
 Users: "Staff"
 Member_Servers: "Servers"
+#
+# SQL Server common vars
+#
+mssql_sqlsvc_account: sql_svc
+mssql_agentsvc_account: sql_agt
+mssql_instance_name: Test
+mssql_sqlsvc_account_pass: "Pa55word"
