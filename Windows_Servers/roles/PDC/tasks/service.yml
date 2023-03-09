@@ -10,9 +10,9 @@
     firstname: "{{ mssql_instance_name }}"
     surname: SQLSvc
     password: "{{ mssql_sqlsvc_account_pass }}"
+    description: "SQL Service account for {{ sql_server }}\\{{ mssql_instance_name }}"
     password_never_expires: true
     user_cannot_change_password: true
-    description: "SQL Service account for {{ sql_server }}\\{{ mssql_instance_name }}"
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups:
@@ -31,9 +31,9 @@
     firstname: "{{ mssql_instance_name }}"
     surname: AgentSvc
     password: "{{ mssql_agentsvc_account_pass }}"
-    #password_never_expires: yes
-    #user_cannot_change_password: yes
     description: "SQL Agent service account for {{ sql_server }}\\{{ mssql_instance_name }}"
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups:
@@ -53,8 +53,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint Farm Service Account
-    #PasswordNeverExpires: true
-    #user_cannot_change_password: true
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -71,7 +71,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint Admin Service Account
-    #PasswordNeverExpires: True
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -91,7 +92,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint Pool Service Account
-    #PasswordNeverExpires: True
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -107,7 +109,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint Services Account
-    #PasswordNeverExpires: True
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -123,7 +126,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint Crawl Service Account
-    #PasswordNeverExpires: True
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -139,7 +143,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint search Service Account
-    #PasswordNeverExpires: True
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -157,7 +162,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint MySitePool Service Account
-    #PasswordNeverExpires: True
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -173,7 +179,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint User Profile Sync Service Account
-    #PasswordNeverExpires: True
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -190,7 +197,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint Workflow Manager Service Account
-    #PasswordNeverExpires: True
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -208,7 +216,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint Portal Super User
-    #PasswordNeverExpires: True
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
@@ -224,8 +233,8 @@
     surname: Service Account
     password: Pa55word
     description: SharePoint Super Reader
-    #password_never_expires: yes
-    user_cannot_change_password: yes
+    password_never_expires: true
+    user_cannot_change_password: true
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups: 
