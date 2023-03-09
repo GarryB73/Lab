@@ -1,6 +1,6 @@
 ---
 #
-# Domain User and Service Account Creation
+# Domain Service Account Creation
 #
 # Setup service accounts for SQL Server
 #
@@ -31,7 +31,7 @@
     password: "{{ mssql_agentsvc_account_pass }}"
     password_never_expires: yes
     user_cannot_change_password: yes
-    description: "SQL Agent service account for {{ inventory_hostname }}\\{{ mssql_instance_name }}"
+    description: "SQL Agent service account for {{ sql_server }}\\{{ mssql_instance_name }}"
     state: present
     path: "ou={{ Service_Accounts }}, dc={{ netbios_domain }}, dc={{ middle_level_domain }}, dc={{ end_level_domain }}"
     groups:
@@ -41,8 +41,9 @@
     domain_server: "{{ primary_domain_controller }}"
   delegate_to: "{{ primary_domain_controller }}"
   tags: service_account
-
+#
 # Create SQL Server Farm Service Accounts
+#
 - name: Create SharePoint Farm Account
   community.windows.win_domain_user:
     name: sp_farm
