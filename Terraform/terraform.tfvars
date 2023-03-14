@@ -23,6 +23,7 @@ firmware = "efi"
 #
 PDC_name = "testdc001"
 PDC_IPv4 = "192.168.158.10"
+PDC_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0012"
 PDC_cpu_num = 2
 PDC_mem = 4096
 #
@@ -47,8 +48,14 @@ EXCServer_IPv4 = "192.168.158.17"
 EXCServer_cpu_num = 2
 EXCServer_mem = 4096
 #
-# Common network parameters
+# Common IPv4 network parameters
 #
 netmask_IPv4 = "24"
 def_gw_IPv4 = "192.168.158.2"
 dns_server_IPv4 = "192.168.158.2"
+#
+# Common IPv6 network parameters
+#
+subnet_prefix_IPv6 = "64"
+def_gw_IPv6 = ""
+dns_server_IPv6 = "::1"

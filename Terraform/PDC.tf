@@ -72,7 +72,14 @@ resource "vsphere_virtual_machine" "PDC" {
         dns_server_list = ["${var.dns_server_IPv4}"]
       }
 
+      network_interface {
+        ipv6_address    = "${var.PDC_IPv6}"
+        ipv6_netmask    = "${var.subnet_prefix_IPv6}"
+        dns_server_list = ["${var.dns_server_IPv6}"]
+      }
+
       ipv4_gateway = "${var.def_gw_IPv4}"
+      ipv6_gateway = "${var.def_gw_IPv6}"
     }
   }
 }
