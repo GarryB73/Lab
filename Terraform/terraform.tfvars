@@ -31,6 +31,7 @@ PDC_mem = 4096
 #
 SQLServer_name = "testsql001"
 SQLServer_IPv4 = "192.168.158.14"
+SQLServer_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0013"
 SQLServer_cpu_num = 2
 SQLServer_mem = 4096
 #
@@ -38,6 +39,7 @@ SQLServer_mem = 4096
 #
 SPServer_name = "testsp001"
 SPServer_IPv4 = "192.168.158.16"
+SPServer_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0014"
 SPServer_cpu_num = 2
 SPServer_mem = 4096
 #
@@ -45,6 +47,7 @@ SPServer_mem = 4096
 #
 EXCServer_name = "testexc001"
 EXCServer_IPv4 = "192.168.158.17"
+EXCServer_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0015"
 EXCServer_cpu_num = 2
 EXCServer_mem = 4096
 #

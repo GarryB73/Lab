@@ -15,8 +15,11 @@ variable "EXCServer_name" {}
 variable "PDC_IPv4" {}
 variable "PDC_IPv6" {}
 variable "SQLServer_IPv4" {}
-variable "SPServer_IPv4" {}
+variable "SQLServer_IPv6" {}
+variable "SQLServer_IPv4" {}
+variable "SQLServer_IPv6" {}
 variable "EXCServer_IPv4" {}
+variable "EXCServer_IPv6" {}
 variable "netmask_IPv4" {}
 variable "def_gw_IPv4" {}
 variable "dns_server_IPv4" {}

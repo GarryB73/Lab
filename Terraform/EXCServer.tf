@@ -67,12 +67,12 @@ resource "vsphere_virtual_machine" "EXCServer" {
       }
 
       network_interface {
-        ipv4_address    = "${var.EXCServer_IPv4}"
-        ipv4_netmask    = "${var.netmask_IPv4}"
-        dns_server_list = ["${var.dns_server_IPv4}"]
+        ipv6_address    = "${var.EXCServer_IPv6}"
+        ipv6_netmask    = "${var.subnet_prefix_IPv6}"
+        dns_server_list = ["${var.dns_server_IPv6}"]
       }
 
-      ipv4_gateway = "${var.def_gw_IPv4}"
+      ipv6_gateway = "${var.def_gw_IPv6}"
     }
   }
 }
