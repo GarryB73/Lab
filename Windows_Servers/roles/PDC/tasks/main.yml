@@ -8,6 +8,10 @@
 #
 - include_tasks: build_domain.yml
 #
+# Enable managed service accounts in Active Directory
+#
+#- include_tasks: enable_managed_service_accounts.yml
+#
 # Configure Group Policys
 #
 # - include: gpos.yml
