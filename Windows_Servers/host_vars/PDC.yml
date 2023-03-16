@@ -1,0 +1,6 @@
+---
+ansible_password: "Pa55word"
+domain_admin_password: "Pa55word"
+domain_safemode_password: "Pa55word"
+mssql_sqlsvc_account_pass: "Pa55word"
+mssql_agentsvc_account_pass: "Pa55word"
