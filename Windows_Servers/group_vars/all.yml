@@ -1,6 +1,5 @@
 ---
 ansible_user: administrator
-ansible_password: "Pa55word"
 ansible_port: 5985
 ansible_connection: winrm
 ansible_winrm_server_cert_validation: ignore
@@ -11,8 +10,6 @@ middle_level_domain: "co"
 end_level_domain: "uk"
 domain_admin: "{{ ansible_user }}@{{ domain }}"
 domain_admin_username: "{{ ansible_user }}"
-domain_admin_password: "Pa55word"
-domain_safemode_password: "Pa55word"
 
 primary_domain_controller: "testdc001"
 sp_server: "testsp001"
@@ -35,5 +32,3 @@ Member_Servers: "Servers"
 mssql_sqlsvc_account: sql_svc
 mssql_agentsvc_account: sql_agt
 mssql_instance_name: Test
-mssql_sqlsvc_account_pass: "Pa55word"
-mssql_agentsvc_account_pass: "Pa55word"
