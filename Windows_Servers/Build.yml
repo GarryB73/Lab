@@ -1,12 +1,5 @@
 ---
 #
-# Collect passwords from vault
-#
-- tasks:
-    - name: include vault
-      ansible.builtin.include_vars:
-        file: passwords.yml
-#
 # Configure the primary domain controller
 #
 - hosts: Domain
