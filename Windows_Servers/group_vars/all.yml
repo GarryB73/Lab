@@ -1,4 +1,14 @@
 ---
+#
+# Collect passwords from vault
+#
+tasks:
+  - name: include vault
+    ansible.builtin.include_vars:
+      file: passwords.yml
+#
+#
+#
 ansible_admin: administrator
 ansible_port: 5985
 ansible_connection: winrm
@@ -39,9 +49,3 @@ Member_Servers: "Servers"
 mssql_sqlsvc_account: sql_svc
 mssql_agentsvc_account: sql_agt
 mssql_instance_name: Test
-#
-# Collect passwords from vault
-tasks:
-  - name: include vault
-    ansible.builtin.include_vars:
-      file: passwords.yml
