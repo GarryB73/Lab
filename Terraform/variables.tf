@@ -14,7 +14,7 @@ variable "SPServer_name" {}
 variable "EXCServer_name" {}
 variable "PDC_IPv4" {}
 variable "SPServer_IPv4" {}
-variable "SQLerver_IPv4" {}
+variable "SQServer_IPv4" {}
 variable "EXCServer_IPv4" {}
 variable "subnet_mask_IPv4" {}
 variable "def_gw_IPv4" {}
