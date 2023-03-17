@@ -1,7 +1,6 @@
 -  name: "Create a GPO"
    hosts: windows
    tasks:
-   - win_shell: install-packageprovider -name nuget -force
    - name: "Install GroupPolicyDSC"
      win_psmodule:
         name: GroupPolicyDSC

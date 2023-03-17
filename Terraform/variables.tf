@@ -12,6 +12,13 @@ variable "PDC_name" {}
 variable "SQLServer_name" {}
 variable "SPServer_name" {}
 variable "EXCServer_name" {}
+variable "PDC_IPv4" {}
+variable "SPServer_IPv4" {}
+variable "SQLerver_IPv4" {}
+variable "EXCServer_IPv4" {}
+variable "subnet_mask_IPv4" {}
+variable "def_gw_IPv4" {}
+variable "dns_server_IPv4" {}
 variable "PDC_IPv6" {}
 variable "SPServer_IPv6" {}
 variable "SQLerver_IPv6" {}

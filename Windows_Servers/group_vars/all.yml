@@ -1,26 +1,33 @@
 ---
-ansible_user: administrator
+ansible_admin: administrator
 ansible_port: 5985
 ansible_connection: winrm
 ansible_winrm_server_cert_validation: ignore
-
+#
+# define domain details
+#
 domain: "test.co.uk"
 netbios_domain: "test"
 middle_level_domain: "co"
 end_level_domain: "uk"
-domain_admin: "{{ ansible_user }}@{{ domain }}"
-domain_admin_username: "{{ ansible_user }}"
-
+domain_admin: administrator
+#domain_admin: "{{ domain_admin }}@{{ domain }}"
+#domain_admin_username: "{{ domain_admin }}"
+#
+# define server names
+#
 primary_domain_controller: "testdc001"
 sp_server: "testsp001"
 sql_server: "testsql001"
 exc_server: "testexc001"
-
+#
+# define fqdn names for all server
+#
 fqdn_primary_domain_controller: "{{ primary_domain_controller }}.{{ domain }}"
 fqdn_sp_server: "{{ sp_server }}.{{ domain }}"
 fqdn_sql_server: "{{ sql_server }}.{{ domain }}"
 fqdn_exc_server: "{{ exc_server }}.{{ domain }}"
-
+#
 # AD OU Settings
 Service_Accounts: "Service Accounts"
 Administrator: "Admins"
@@ -32,3 +39,10 @@ Member_Servers: "Servers"
 mssql_sqlsvc_account: sql_svc
 mssql_agentsvc_account: sql_agt
 mssql_instance_name: Test
+#
+# include passwords from vault
+#
+- tasks:
+    - name: include vault
+      ansible.builtin.include_vars:
+        file: passwords.yml

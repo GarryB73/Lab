@@ -22,6 +22,7 @@ firmware = "efi"
 # Primary Domain Controller settings
 #
 PDC_name = "testdc001"
+PDC_IPv4 = "192.168.158.10"
 PDC_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0012"
 PDC_cpu_num = 2
 PDC_mem = 4096
@@ -29,6 +30,7 @@ PDC_mem = 4096
 # Microsoft SharePoint Server settings
 #
 SPServer_name = "testsp001"
+SPServer_IPv4 = "192.168.158.14"
 SPServer_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0013"
 SPServer_cpu_num = 2
 SPServer_mem = 4096
@@ -36,6 +38,7 @@ SPServer_mem = 4096
 # Microsoft SQL Server settings
 #
 SQLServer_name = "testsql001"
+SQLServer_IPv4 = "192.168.158.15"
 SQLServer_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0014"
 SQLServer_cpu_num = 2
 SQLServer_mem = 4096
@@ -43,9 +46,16 @@ SQLServer_mem = 4096
 # Microsoft Exchange Server settings
 #
 EXCServer_name = "testexc001"
+EXCServer_IPv4 = "192.168.158.17"
 EXCServer_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0015"
 EXCServer_cpu_num = 2
 EXCServer_mem = 4096
+#
+# Common IPv4 network parameters
+#
+subnet_mask_IPv4 = "255.255.255.0"
+def_gw_IPv4 = "192.168.158.2"
+dns_server_IPv4 = "192.168.158.2"
 #
 # Common IPv6 network parameters
 #
