@@ -1,0 +1,9 @@
+---
+#
+# Copy the SQL install files file server to local SQL drive
+#
+- name: Copy fole SP
+  ansible.windows.win_copy:
+    src: \\fileserver\SQL
+    dest: c:\SQL
+

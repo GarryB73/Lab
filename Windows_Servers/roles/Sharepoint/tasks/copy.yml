@@ -1,0 +1,9 @@
+---
+#
+# Copy the AutoSPinstall file from file server to local Sharepoint drive
+#
+- name: Copy fole SP
+  ansible.windows.win_copy:
+    src: \\fileserver\autoSPinstall
+    dest: c:\autoSPinstall
+

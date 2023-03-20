@@ -10,6 +10,7 @@ tasks:
 #
 #
 ansible_admin: administrator
+ansible_password: "{{ ansible_pwd | password_hash('256') }}"
 ansible_port: 5985
 ansible_connection: winrm
 ansible_winrm_server_cert_validation: ignore
@@ -20,9 +21,10 @@ domain: "test.co.uk"
 netbios_domain: "test"
 middle_level_domain: "co"
 end_level_domain: "uk"
-domain_admin: administrator
-#domain_admin: "{{ domain_admin }}@{{ domain }}"
-#domain_admin_username: "{{ domain_admin }}"
+domain_admin: "{{ ansible_admin }}@{{ domain }}"
+domain_admin_username: "{{ domain_admin }}"
+domain_admin_password: "{{ domain_admin_pwd | password_hash('256') }}"
+domain_safemode_password: "{{ domain_safemode_pwd | password_hash('256') }}"
 #
 # define server names
 #
@@ -49,3 +51,5 @@ Member_Servers: "Servers"
 mssql_sqlsvc_account: sql_svc
 mssql_agentsvc_account: sql_agt
 mssql_instance_name: Test
+mssql_sqlsvc_password: "{{ mssql_sqlsvc_pwd | password_hash('256') }}"
+mssql_agentsvc_password: "{{ mssql_agentsvc_pwd | password_hash('256') }}"
