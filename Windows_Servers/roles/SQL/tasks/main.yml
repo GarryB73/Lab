@@ -19,4 +19,4 @@
 #- include_tasks: pre_reqs.yml
 #
 # Install SQL server
-- include_tasks: install_sql.yml
+# - include_tasks: install_sql.yml
