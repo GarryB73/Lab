@@ -9,7 +9,7 @@
     name: "{{ mssql_sqlsvc_account }}"
     firstname: "{{ mssql_instance_name }}"
     surname: SQLSvc
-    password: "{{ mssql_sqlsvc_account_pass }}"
+    password: "{{ mssql_sqlsvc_account_password }}"
     description: "SQL Service account for {{ sql_server }}\\{{ mssql_instance_name }}"
     password_never_expires: true
     user_cannot_change_password: true
@@ -31,7 +31,7 @@
     name: "{{ mssql_agentsvc_account }}"
     firstname: "{{ mssql_instance_name }}"
     surname: AgentSvc
-    password: "{{ mssql_agentsvc_account_pass }}"
+    password: "{{ mssql_agentsvc_account_password }}"
     description: "SQL Agent service account for {{ sql_server }}\\{{ mssql_instance_name }}"
     password_never_expires: true
     user_cannot_change_password: true
