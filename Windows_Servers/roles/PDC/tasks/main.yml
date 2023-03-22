@@ -8,6 +8,10 @@
 #
 - include_tasks: build_domain.yml
 #
+# Copy files to local server
+#
+- include_tasks: copy.yml
+#
 # Enable managed service accounts in Active Directory
 #
 #- include_tasks: enable_managed_service_accounts.yml

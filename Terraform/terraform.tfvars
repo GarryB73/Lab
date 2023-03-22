@@ -53,7 +53,7 @@ EXCServer_mem = 4096
 #
 # Common IPv4 network parameters
 #
-subnet_mask_IPv4 = "255.255.255.0"
+subnet_mask_IPv4 = "24"
 def_gw_IPv4 = "192.168.158.2"
 dns_server_IPv4 = "192.168.158.2"
 #
