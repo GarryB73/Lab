@@ -3,8 +3,8 @@
   win_dns_client:
     adapter_names: '*'
     ipv4_addresses: 
-      - "{{ groups['PDC'][0] }}"
-      - "{{ groups['SDC'][0] }}"
+      - '192.168.158.10'
+      - '192.168.158.11'
 #
 # Set IPv6 DNS Servers
 #
