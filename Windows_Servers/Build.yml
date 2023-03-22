@@ -2,9 +2,15 @@
 #
 # Configure the primary domain controller
 #
-- hosts: Domain
+- hosts: Primary_Domain
   roles:
    - PDC
+#
+# Configure the secondary domain controller
+#
+#- hosts: Secondary_Domain
+#  roles:
+#  - SDC
 # 
 # Domain join and install sql server
 #

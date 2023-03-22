@@ -1,6 +1,6 @@
 ---
 #
-#
+# 
 #
 ansible_user: administrator
 ansible_password: !vault |
@@ -41,6 +41,7 @@ domain_safemode_password: !vault |
 # define server names
 #
 primary_domain_controller: "testdc001"
+secondary_domain_controller: "testdc002"
 sp_server: "testsp001"
 sql_server: "testsql001"
 exc_server: "testexc001"
@@ -48,6 +49,7 @@ exc_server: "testexc001"
 # define fqdn names for all server
 #
 fqdn_primary_domain_controller: "{{ primary_domain_controller }}.{{ domain }}"
+fqdn_secondary_domain_controller: "{{ secondary_domain_controller }}.{{ domain }}"
 fqdn_sp_server: "{{ sp_server }}.{{ domain }}"
 fqdn_sql_server: "{{ sql_server }}.{{ domain }}"
 fqdn_exc_server: "{{ exc_server }}.{{ domain }}"

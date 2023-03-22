@@ -4,6 +4,7 @@
     adapter_names: '*'
     ipv4_addresses: 
       - "{{ groups['PDC'][0] }}"
+      - "{{ groups['SDC'][0] }}"
 #
 # Set IPv6 DNS Servers
 #

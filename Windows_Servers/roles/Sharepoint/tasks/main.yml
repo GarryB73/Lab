@@ -10,4 +10,4 @@
 #
 # Copy AutoSPinstall file to local drive
 #
-- include_tasks: copy.yml
+#- include_tasks: copy.yml
