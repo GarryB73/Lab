@@ -34,7 +34,6 @@ resource "vsphere_virtual_machine" "SQLServer" {
     label           = "disk1"
     unit_number     = 1
     size            = 10
-    type          = "thin"
   }
   #
   # Provision SQL log drive
@@ -43,7 +42,6 @@ resource "vsphere_virtual_machine" "SQLServer" {
     label           = "disk2"
     unit_number     = 2
     size            = 1
-    type          = "thin"  
   }
   #
   # Clone template and configure VM

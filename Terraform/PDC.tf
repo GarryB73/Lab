@@ -34,7 +34,6 @@ resource "vsphere_virtual_machine" "PDC" {
     label         = "disk1"
     unit_number   = 1
     size          = 10
-    type          = "thin"
   }
   #
   # Provsion Active Directory xxxx drive
@@ -43,7 +42,6 @@ resource "vsphere_virtual_machine" "PDC" {
     label         = "disk2"
     unit_number   = 2
     size          = 10
-    type          = "thin"
   }
   #
   # Clone template and configure VM

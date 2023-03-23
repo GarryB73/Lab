@@ -34,7 +34,6 @@ resource "vsphere_virtual_machine" "EXCServer" {
     label         = "disk1"
     unit_number   = 1
     size          = 5
-    type          = "thin"
   }
   #
   # Provision SQL log drive
@@ -43,7 +42,6 @@ resource "vsphere_virtual_machine" "EXCServer" {
     label         = "disk2"
     unit_number   = 2
     size          = 1
-    type          = "thin"
   }
   #
   # Clone template and configure VM
