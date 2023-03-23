@@ -33,7 +33,7 @@ resource "vsphere_virtual_machine" "SQLServer" {
   disk {
     label             = "disk1"
     unit_number       = 1
-    size              = 50
+    size              = 10
     disk_provisioning = "thin" 
   }
   #
@@ -42,7 +42,7 @@ resource "vsphere_virtual_machine" "SQLServer" {
   disk {
     label             = "disk2"
     unit_number       = 2
-    size              = 10
+    size              = 1
     disk_provisioning = "thin"
   }
   #
