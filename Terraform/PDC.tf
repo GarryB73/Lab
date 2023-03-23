@@ -31,19 +31,19 @@ resource "vsphere_virtual_machine" "PDC" {
   # Provision Active Directory xxxx drive
   #
   disk {
-    label           = "disk1"
-    unit_number     = 1
-    size            = 10
-    disk_provisioning = "thin" 
+    label         = "disk1"
+    unit_number   = 1
+    size          = 10
+    type          = "thin"
   }
   #
   # Provsion Active Directory xxxx drive
   #
   disk {
-    label           = "disk2"
-    unit_number     = 2
-    size            = 10
-    disk_provisioning = "thin" 
+    label         = "disk2"
+    unit_number   = 2
+    size          = 10
+    type          = "thin"
   }
   #
   # Clone template and configure VM

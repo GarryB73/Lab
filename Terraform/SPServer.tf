@@ -31,10 +31,10 @@ resource "vsphere_virtual_machine" "SPServer" {
   # Provision SharePoint data drive
   #
   disk {
-    label           = "disk1"
-    unit_number     = 1
-    size            = 10
-    disk_provisioning = "thin" 
+    label         = "disk1"
+    unit_number   = 1
+    size          = 10
+    type          = "thin"
   }
   #
   # Clone template and configure VM
