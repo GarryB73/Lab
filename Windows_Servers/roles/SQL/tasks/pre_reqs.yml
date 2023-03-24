@@ -62,7 +62,7 @@
   changed_when: true
   notify: reboot windows
 
-- meta: flush_handlers
+#- meta: flush_handlers
 #
 # ***** Need to replace this wil copy the software to server ************
 #
