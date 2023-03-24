@@ -1,9 +1,16 @@
 ---
 #
+# Copy the Powershell modules
+#
+- name: Copy Powershell modules
+  ansible.windows.win_copy:
+    src: \\fileserver\SQLModules
+    dest: C:\Program Files\WindowsPowerShell\Modules
+#
 # Copy the SQL install files file server to local SQL drive
 #
-- name: Copy fole SP
+- name: Copy SQL server install iso
   ansible.windows.win_copy:
-    src: \\fileserver\SQL
-    dest: c:\SQL
+    src: \\fileserver\media
+    dest: c:\software\
 
