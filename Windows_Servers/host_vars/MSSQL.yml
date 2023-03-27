@@ -1,11 +1,11 @@
 ---
 #
 # Path to download installation media to
-mssql_installation_path: C:\Software
+mssql_installation_path: C:\Software\Media
 
 # Instance details
 mssql_drive: D
-mssql_userdbvol_name: test
+mssql_userdbvol_name: MSSQLSERVER
 mssql_port: 1433
 
 ### Memory Configuration ###
