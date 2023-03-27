@@ -36,23 +36,23 @@
     # two options for these normally single option items.
 
     # SQL Service Account
-    SQLSvcAccount_username: "sql_svc@test.co.uk"
-    SQLSvcAccount_password: "Pa55word"
+    SQLSvcAccount_username: "{{ mssql_sqlsvc_account }}.{{ domain }}"
+    SQLSvcAccount_password: "{{ mssql_sqlsvc_password }}"
     # SQL Agent Service Account
-    AgtSvcAccount_username: "sql_agt@test.co.uk"
-    AgtSvcAccount_password: "Pa55word"
+    AgtSvcAccount_username: "{{ mssql_agentsvc_account }}@{{ domain }}"
+    AgtSvcAccount_password: "{{ mssql_agentsvc_password }}"
     # SQL Analysis Services Account
-    ASSvcAccount_username: "sql_svc@test.co.uk"
-    ASSvcAccount_password: "Pa55word"
+    ASSvcAccount_username: "{{ mssql_sqlsvc_account }}.{{ domain }}"
+    ASSvcAccount_password: "{{ mssql_sqlsvc_password }}"
 
     # Used when installing on a network path, comment out 
     # SourceCredential_username: "{{ ansible_user }}"
     # SourceCredential_password: "{{ ansible_password }}"
 
     # System Admins 
-    SQLSysAdminAccounts: "sql_svc@test.co.uk"
+    SQLSysAdminAccounts: "{{ mssql_sqlsvc_account }}.{{ domain }}"
     # Analysis Services Admins (if installed)
-    ASSysAdminAccounts: "sql_agt@test.co.uk"
+    ASSysAdminAccounts: "{{ mssql_agentsvc_account }}@{{ domain }}"
   tags: install_sql
 
 # End of win_dsc for SQL Server
