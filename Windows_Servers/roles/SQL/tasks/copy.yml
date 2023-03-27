@@ -7,10 +7,17 @@
     src: \\fileserver\SQLModules
     dest: C:\Program Files\WindowsPowerShell\Modules
 #
-# Copy the SQL install files file server to local SQL drive
+# Copy SQL Server installation files
 #
 - name: Copy SQL server install iso
   ansible.windows.win_copy:
     src: \\fileserver\media
-    dest: c:\software\
+    dest: c:\software\media
+#
+# Copy SQL Server Management Studio installation files
+#
+- name: Copy SQL Server Management Studio 
+  ansible.winows.win_copy:
+    src: \\fileserver\ssms
+    dest: c:\software\ssms
 
