@@ -19,7 +19,3 @@
 # Install SQL server
 #
 - include_tasks: install_sql.yml
-#
-# Install SQL Server Management Studio
-#
-- include_tasks: install_ssms.ps1

@@ -9,6 +9,7 @@
 # In particular completing these steps:
 # https://docs.microsoft.com/en-us/powershell/dsc/troubleshooting#gathering-events-from-a-single-dsc-operation
 # then re-running a failing PowershellDSC job can help you find the source of your error
+#
 - name: Install SQL Server
   win_dsc:
     resource_name: SQLSetup
@@ -28,6 +29,7 @@
     SQLCollation: "{{ mssql_collation }}"
     BrowserSvcStartupType: "{{ mssql_browsersvc_mode }}"
     SuppressReboot: "{{ mssql_suppress_reboot }}"
+    #
     # Service Accounts
     #
     # If the type of the DSC resource option is a PSCredential then 
@@ -55,6 +57,19 @@
     ASSysAdminAccounts: "{{ netbios_domain }}\\{{ mssql_agentsvc_account }}"
   tags: install_sql
 
+- name: Run PowerShell to install SQL Server Management Studio
+  ansible.windows.win_powershell:
+    script: |
+      [CmdletBinding()]
+      param (
+          [String]
+          $media_path = "C:\Software\SSMS\SSMS-Setup-ENU.exe"
+          $install_path = "$env:SystemDrive\SSMSto"
+          $params = "/Install /Quiet SSMSInstallRoot=`"$install_path`""
+
+          [Switch]
+          Start-Process -FilePath $media_path -ArgumentList $params -Wait
+      )
 
 # End of win_dsc for SQL Server
 
