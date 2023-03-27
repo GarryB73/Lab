@@ -5,7 +5,7 @@ mssql_installation_path: C:\Software
 
 # Instance details
 mssql_drive: D
-mssql_userdbvol_name: testdb
+mssql_userdbvol_name: test
 mssql_port: 1433
 
 ### Memory Configuration ###
