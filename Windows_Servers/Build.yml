@@ -2,9 +2,9 @@
 #
 # Configure the primary domain controller
 #
-- hosts: Primary_Domain
-  roles:
-   - PDC
+#- hosts: Primary_Domain
+#  roles:
+#   - PDC
 #
 # Configure the secondary domain controller
 #
