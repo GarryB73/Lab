@@ -89,7 +89,7 @@ mssql_sa_password: "Pa55word"
 # Master data services = MDS
 # ADVANCEDANALYTICS 	Installs R Services, requires the database engine. Unattended installations require /IACCEPTROPENLICENSETERMS parameter.   
 
-mssql_features: SQLENGINE,FULLTEXT,CONN
+mssql_features: SQLENGINE,FULLTEXT,CONN, SSMS
 
 # Collation
 mssql_collation: SQL_Latin1_General_CP1_CI_AS
