@@ -70,7 +70,7 @@ resource "vsphere_virtual_machine" "SQLServer1" {
         ipv4_address = "${var.SQLServer1_IPv4}"
         ipv4_netmask = "${var.subnet_mask_IPv4}"
         dns_server_list = ["${var.dns_server_IPv4}"]
-        #ipv6_address    = "${var.SQLServer_IPv6}"
+        #ipv6_address    = "${var.SQLServer1_IPv6}"
         #ipv6_netmask    = "${var.subnet_prefix_IPv6}"
         #dns_server_list = ["${var.dns_server_IPv6}"]
       }

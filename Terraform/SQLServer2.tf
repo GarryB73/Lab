@@ -1,10 +1,10 @@
 #
 # Set guest VM's parameters
 #
-resource "vsphere_virtual_machine" "SQLServer" {
-  name                 = "${var.SQLServer_name}"
-  num_cpus             = "${var.SQLServer_cpu_num}"
-  memory               = "${var.SQLServer_mem}"
+resource "vsphere_virtual_machine" "SQLServer2" {
+  name                 = "${var.SQLServer2_name}"
+  num_cpus             = "${var.SQLServer2_cpu_num}"
+  memory               = "${var.SQLServer2_mem}"
   datastore_id         = "${data.vsphere_datastore.datastore.id}"
   resource_pool_id     = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
   guest_id             = "${data.vsphere_virtual_machine.Win2022GUI_template.guest_id}"
@@ -51,7 +51,7 @@ resource "vsphere_virtual_machine" "SQLServer" {
 
     customize {
       windows_options {
-        computer_name    = "${var.SQLServer_name}"
+        computer_name    = "${var.SQLServer2_name}"
         admin_password   = "${var.winadmin_password}"
         auto_logon       = true
         auto_logon_count = 1
@@ -67,10 +67,10 @@ resource "vsphere_virtual_machine" "SQLServer" {
       }
 
       network_interface {
-        ipv4_address = "${var.SQLServer_IPv4}"
+        ipv4_address = "${var.SQLServer2_IPv4}"
         ipv4_netmask = "${var.subnet_mask_IPv4}"
         dns_server_list = ["${var.dns_server_IPv4}"]
-        #ipv6_address    = "${var.SQLServer_IPv6}"
+        #ipv6_address    = "${var.SQLServer2_IPv6}"
         #ipv6_netmask    = "${var.subnet_prefix_IPv6}"
         #dns_server_list = ["${var.dns_server_IPv6}"]
       }
