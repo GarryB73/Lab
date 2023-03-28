@@ -19,3 +19,4 @@
 # Install SQL server & Management Studio
 #
 - include_tasks: install_sql.yml
+
