@@ -43,6 +43,14 @@ SQLServer_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0014"
 SQLServer_cpu_num = 2
 SQLServer_mem = 4096
 #
+# Microsoft SQL Server 1 settings
+#
+SQLServer1_name = "testsql002"
+SQLServer1_IPv4 = "192.168.158.16"
+SQLServer1_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0016"
+SQLServer1_cpu_num = 2
+SQLServer1_mem = 4096
+#
 # Microsoft Exchange Server settings
 #
 EXCServer_name = "testexc001"
