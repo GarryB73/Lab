@@ -43,7 +43,7 @@ domain_safemode_password: !vault |
 primary_domain_controller: "testdc001"
 secondary_domain_controller: "testdc002"
 sp_server: "testsp001"
-sql_server: "testsql001"
+sql_server: "testsql002"
 exc_server: "testexc001"
 #
 # define fqdn names for all server
