@@ -16,8 +16,8 @@
 #
 # Copy SQL Server Management Studio installation files
 #
-- name: Copy SQL Server Management Studio 
-  ansible.winows.win_copy:
-    src: \\fileserver\ssms
-    dest: c:\software\ssms
+#- name: Copy SQL Server Management Studio 
+#  ansible.winows.win_copy:
+#    src: \\fileserver\ssms
+#    dest: c:\software\ssms
 
