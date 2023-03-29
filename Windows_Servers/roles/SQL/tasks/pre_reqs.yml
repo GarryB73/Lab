@@ -35,6 +35,9 @@
   debug:
     msg: 'Pending reboot detected'
   changed_when: true
-  notify: reboot windows
+  win_reboot:
+    reboot_timeout: 3600
+    post_reboot_delay: 60
+  when: mssql_suppress_reboot == False
 
 - meta: flush_handlers
