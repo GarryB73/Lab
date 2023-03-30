@@ -45,7 +45,7 @@ resource "vsphere_virtual_machine" "_SQLServer" {
       network_interface {
         ipv4_address    = "${var.SQLServer_IP}"
         ipv4_netmask    = "${var.netmask}"
-        dns_server_list = ["${var.dns_server}"]
+        dns_server_list = ["${var.dns_server}","${var.dns_server1}"]
       }
 
       ipv4_gateway = "${var.def_gw}"
