@@ -2,7 +2,7 @@
 # vsphere related params
 #
 vsphere_user = "administrator@vsphere.local"
-vsphere_password = "Pa55word!"
+# vsphere_password = "Pa55word!"
 vsphere_server = "192.168.158.200"
 vsphere_dc_name = "Datacenter"
 vsphere_dscluster = "vsanDatastore"
@@ -13,7 +13,7 @@ vsphere_template_name = "Win2020"
 #
 # Windows administrator password set during vm customization
 #
-winadmin_password = "Pa55word"
+# winadmin_password = "Pa55word"
 #
 # Firmware of template
 #
