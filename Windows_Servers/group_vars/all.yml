@@ -22,7 +22,6 @@ middle_level_domain: "co"
 end_level_domain: "uk"
 domain_admin: "{{ ansible_user }}@{{ domain }}"
 domain_admin_username: "{{ domain_admin }}"
-domain_admin_password: "{{ domain_admin_pwd }}"
 domain_admin_password: !vault |
           $ANSIBLE_VAULT;1.2;AES256;ad-admin
           31633539623431373232313265323435643831313733656436396161303735376638666361656136

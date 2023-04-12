@@ -3,6 +3,7 @@
 # Configure the primary domain controller
 #
 - hosts: Primary_Domain
+  gather_facts: False
   roles:
    - PDC
 #
@@ -15,17 +16,18 @@
 # Domain join and install sql server
 #
 - hosts: SQL
+  gather_facts: False
   roles:
    - SQL
 #   
 # Domain join and install Sharepoint Server
 #
-- hosts: Sharepoint
-  roles:
-   - Sharepoint
+#- hosts: Sharepoint
+#  roles:
+#   - Sharepoint
 #
 # Domain join and install Exchange server
 #
-- hosts: Exchange
-  roles:
-   - Exchange
+#- hosts: Exchange
+#  roles:
+#   - Exchange
