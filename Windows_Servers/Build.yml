@@ -1,7 +1,8 @@
 ---
-- name: include vault
-  ansible.builtin.include_vars:
-    file: secret.yml
+- hosts: All
+  gather_facts: False
+  var_files:
+    - secret.yml
 #
 # Configure the primary domain controller
 #
