@@ -3,6 +3,7 @@
 # 
 #
 ansible_user: administrator
+ansible_password: "{{ ansible_pwd }}"
 #ansible_password: !vault |
 #          $ANSIBLE_VAULT;1.2;AES256;ansible_pwd
 #          65656462613563396663656262396535623030353935663361313436306662623837336234613663
@@ -22,6 +23,7 @@ middle_level_domain: "co"
 end_level_domain: "uk"
 domain_admin: "{{ ansible_user }}@{{ domain }}"
 domain_admin_username: "{{ domain_admin }}"
+domain_admin_password: "{{ domain_admin_pwd }}"
 #domain_admin_password: !vault |
 #          $ANSIBLE_VAULT;1.2;AES256;ad-admin
 #          38363430316335383165356630626465666137333661653637353633323038343933643437316532
