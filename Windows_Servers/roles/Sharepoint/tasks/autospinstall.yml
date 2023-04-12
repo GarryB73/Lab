@@ -1,0 +1,10 @@
+---
+#
+# Install Microsoft SharePoint
+#
+- name: Install Microsoft SharePoint
+  ansible.windows.win_shell: |
+    $media_path = "C:\AutoSPInstall"
+#    $install_path = "$env:SystemDrive\SSMSto"
+#    $params = "/Install /Quiet SSMSInstallRoot=`"$install_path`""
+#    Start-Process -FilePath $media_path -ArgumentList $params -Wait

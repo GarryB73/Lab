@@ -11,3 +11,7 @@
 # Copy AutoSPinstall file to local drive
 #
 #- include_tasks: copy.yml
+#
+# Install Microsoft SharePoint
+#
+- include_tasks: autospinstall.yml
