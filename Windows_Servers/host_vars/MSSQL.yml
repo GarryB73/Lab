@@ -55,7 +55,7 @@ mssql_security_mode: sql
 # SA user password, if security mode is set to 'SQL'
 # by default for testing we'll be lazy and use the service account password,
 # but on live systems you should use something else:
-mssql_sa_password: "Pa55word"
+# mssql_sa_password: "Pa55word"
 
 # features - Comma seperated list of features to be installed
 #
