@@ -55,7 +55,13 @@ mssql_security_mode: sql
 # SA user password, if security mode is set to 'SQL'
 # by default for testing we'll be lazy and use the service account password,
 # but on live systems you should use something else:
-# mssql_sa_password: "Pa55word"
+mssql_sa_password: !vault |
+          $ANSIBLE_VAULT;1.2;AES256;sql_sa
+          64336264646239356234303931366433663736613437643036363931653330616462666361356138
+          3636646634376532306237616132613866633436343365360a653765343434623439653364303030
+          34313431373438356439313530393366633462306466613239346633396361383761633631366237
+          3331383630653138340a376234363365636338656435303934343538336332646666653438353934
+          3536
 
 # features - Comma seperated list of features to be installed
 #

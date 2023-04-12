@@ -1,1 +1,15 @@
 This playbook, buold the Microsoft domain and joins the member servers
+
+#
+# Create encrypted variables within playbook run the commad below and past results into variable files
+# replace id with variable name eg vsphere, replace password, replace variable with name ef vsphere_password
+# when prompted enter the same vault password for all entries in the playbook
+#
+ansible-vault encrypt_string --vault-id id@prompt password --name variable
+#
+# Example
+ansible-vault encrypt_string --vault-id ansible_pwd@prompt Pa55word --name ansible_password
+#
+# copy the output and save in the group_vars/all.yml
+#
+
