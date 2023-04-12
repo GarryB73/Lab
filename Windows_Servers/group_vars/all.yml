@@ -3,7 +3,6 @@
 # 
 #
 ansible_user: administrator
-ansible_password: "{{ ansible_pwd }}"
 ansible_password: !vault |
           $ANSIBLE_VAULT;1.2;AES256;ansible
           35323732303032353864393133396364326138356336393838396361356637333931306663363064
