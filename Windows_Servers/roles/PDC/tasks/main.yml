@@ -22,7 +22,7 @@
 #
 # Configure DNS
 #
-- include_tasks: dns.yml
+#- include_tasks: dns.yml
 #
 # Configure DHCP
 #
