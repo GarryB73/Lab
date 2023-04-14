@@ -22,12 +22,14 @@
 #   
 # Domain join and install Sharepoint Server
 #
-#- hosts: Sharepoint
-#  roles:
-#   - Sharepoint
+- hosts: Sharepoint
+  gather_facts: False
+  roles:
+   - Sharepoint
 #
 # Domain join and install Exchange server
 #
 #- hosts: Exchange
+#  gather_facts: False
 #  roles:
 #   - Exchange

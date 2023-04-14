@@ -12,8 +12,8 @@ SDC ansible_host="192.168.158.11"
 # Microsoft SQL Server
 #
 [SQL]
-#MSSQL ansible_host="192.168.158.15"
-MSSQL ansible_host="192.168.158.16"
+MSSQL ansible_host="192.168.158.15"
+#MSSQL ansible_host="192.168.158.16"
 #
 # Microsoft Sharepoint Server
 #

@@ -36,7 +36,7 @@
     # there needs to be 2 options set in the Ansible task definition 
     # suffixed with _username and _password. So we will be providing 
     # two options for these normally single option items.
-
+    #
     # SQL Service Account
     SQLSvcAccount_username: "{{ netbios_domain }}\\{{ mssql_sqlsvc_account }}"
     SQLSvcAccount_password: "{{ mssql_sqlsvc_password }}"

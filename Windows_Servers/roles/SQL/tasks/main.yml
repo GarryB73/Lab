@@ -14,9 +14,9 @@
 #
 # Install SQL pre-requisit software
 #
-- include_tasks: pre_reqs.yml
+#- include_tasks: pre_reqs.yml
 #
 # Install SQL server & Management Studio
 #
-- include_tasks: install_sql.yml
+#- include_tasks: install_sql.yml
 
