@@ -10,13 +10,13 @@
 #
 # Copy SQL server installation files
 #
-#- include_tasks: copy.yml
+- include_tasks: copy.yml
 #
 # Install SQL pre-requisit software
 #
-#- include_tasks: pre_reqs.yml
+- include_tasks: pre_reqs.yml
 #
 # Install SQL server & Management Studio
 #
-#- include_tasks: install_sql.yml
+- include_tasks: install_sql.yml
 

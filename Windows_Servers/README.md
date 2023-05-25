@@ -47,6 +47,17 @@ ansible-vault encrypt_string --vault-id id@prompt password --name variable
 # Example: 
 ansible-vault encrypt_string --vault-id ansible_pwd@prompt Pa55word --name ansible_password
 #
+# Creating a mirror repo
 #
+sudo apt update
+sudo apt-get install apt-mirror
 #
-
+# Edit configuration file
+#
+sudo vi /etc/apt/mirror.list
+uncomment out "set base_path"
+change deb line to
+deb-amd64 http://gb.archive.ubuntu.com/ubuntu jammy main universe
+comment out all other deb lines
+save and exit
+sudo apt-mirror

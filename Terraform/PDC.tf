@@ -28,7 +28,7 @@ resource "vsphere_virtual_machine" "PDC" {
     thin_provisioned = "${data.vsphere_virtual_machine.Win2022GUI_template.disks.0.thin_provisioned}"
   }
   #
-  # Provision Active Directory xxxx drive
+  # Provision Active Directory 50GB drive
   #
   disk {
     label         = "disk1"
@@ -36,7 +36,7 @@ resource "vsphere_virtual_machine" "PDC" {
     size          = 10
   }
   #
-  # Provsion Active Directory xxxx drive
+  # Provsion Active Directory 60GB drive
   #
   disk {
     label         = "disk2"

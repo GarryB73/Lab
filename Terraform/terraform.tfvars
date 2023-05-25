@@ -1,5 +1,5 @@
 #
-# vsphere related params
+# vsphere related parameters
 #
 vsphere_user = "administrator@vsphere.local"
 vsphere_password = "Pa55word!"
@@ -13,7 +13,7 @@ vsphere_template_name = "Win2020"
 #
 # Windows administrator password set during vm customization
 #
-# winadmin_password = "Pa55word"
+winadmin_password = "Pa55word"
 #
 # Firmware of template
 #
@@ -23,41 +23,73 @@ firmware = "efi"
 #
 PDC_name = "testdc001"
 PDC_IPv4 = "192.168.158.10"
-PDC_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0012"
+PDC_IPv6 = "2000:100:0:100::a"
 PDC_cpu_num = 2
 PDC_mem = 4096
 #
-# Microsoft SharePoint Server settings
+# Secondary Domain Controller settings
 #
-SPServer_name = "testsp001"
-SPServer_IPv4 = "192.168.158.14"
-SPServer_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0013"
-SPServer_cpu_num = 2
-SPServer_mem = 4096
+SDC_name = "testdc002"
+SDC_IPv4 = "192.168.158.11"
+SDC_IPv6 = "2000:100:0:100::b"
+SDC_cpu_num = 2
+SDC_mem = 4096
 #
 # Microsoft SQL Server settings
 #
 SQLServer1_name = "testsql001"
-SQLServer1_IPv4 = "192.168.158.15"
-SQLServer1_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0014"
+SQLServer1_IPv4 = "192.168.158.20"
+SQLServer1_IPv6 = "2000:100:0:100::1a"
 SQLServer1_cpu_num = 2
 SQLServer1_mem = 4096
 #
-# Microsoft SQL Server 1 settings
+# Microsoft SQL Server settings
 #
 SQLServer2_name = "testsql002"
-SQLServer2_IPv4 = "192.168.158.16"
-SQLServer2_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0016"
+SQLServer2_IPv4 = "192.168.158.21"
+SQLServer2_IPv6 = "2000:100:0:100::1b"
 SQLServer2_cpu_num = 2
 SQLServer2_mem = 4096
+#
+# Microsoft SharePoint Server settings
+#
+SPServer_name = "testsp001"
+SPServer_IPv4 = "192.168.158.31"
+SPServer_IPv6 = "2000:100:0:100::2a"
+SPServer_cpu_num = 2
+SPServer_mem = 4096
 #
 # Microsoft Exchange Server settings
 #
 EXCServer_name = "testexc001"
-EXCServer_IPv4 = "192.168.158.17"
-EXCServer_IPv6 = "fe80:0000:0000:75e0:a540:afd1:d3d3:0015"
+EXCServer_IPv4 = "192.168.158.41"
+EXCServer_IPv6 = "2000:100:0:100::3a"
 EXCServer_cpu_num = 2
 EXCServer_mem = 4096
+#
+# Windows File Server settings
+#
+FILServer_name = "testfil001"
+FILServer_IPv4 = "192.168.158.51"
+FILServer_IPv6 = "2000:100:0:100::4a"
+FILServer_cpu_num = 2
+FILServer_mem = 4096
+#
+# Windows Print Server settings
+#
+PRTerver_name = "testwsus001"
+PRTServer_IPv4 = "192.168.158.52"
+PRTServer_IPv6 = "2000:100:0:100::4b"
+PRTServer_cpu_num = 2
+PRTServer_mem = 4096
+#
+# Microsoft Windows Update Server settings
+#
+WSUSServer_name = "testwsus001"
+WSUSServer_IPv4 = "192.168.158.53"
+WSUSServer_IPv6 = "2000:100:0:100::4c"
+WSUSServer_cpu_num = 2
+WSUSServer_mem = 4096
 #
 # Common IPv4 network parameters
 #
@@ -67,6 +99,6 @@ dns_server_IPv4 = "192.168.158.2"
 #
 # Common IPv6 network parameters
 #
-subnet_prefix_IPv6 = "32"
-def_gw_IPv6 = ""
+subnet_prefix_IPv6 = "64"
+def_gw_IPv6 = "2000:100:0:100::1"
 dns_server_IPv6 = "::1"
