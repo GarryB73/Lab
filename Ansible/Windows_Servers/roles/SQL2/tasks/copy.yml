@@ -1,0 +1,23 @@
+---
+#
+# Copy the Powershell modules
+#
+- name: Copy Powershell modules
+  ansible.windows.win_copy:
+    src: \\fileserver\SQLModules
+    dest: C:\Program Files\WindowsPowerShell\Modules
+#
+# Copy SQL Server installation files
+#
+- name: Copy SQL server install iso
+  ansible.windows.win_copy:
+    src: \\fileserver\media
+    dest: c:\software\media
+#
+# Copy SQL Server Management Studio installation files
+#
+- name: Copy SQL Server Management Studio 
+  ansible.winows.win_copy:
+    src: \\fileserver\ssms
+    dest: c:\software\ssms
+

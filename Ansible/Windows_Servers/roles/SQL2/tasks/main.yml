@@ -1,0 +1,22 @@
+---
+#
+# Initiate and formate data disks
+#
+- include_tasks: initiate_disks.yml
+#
+# Joing server to the domain
+#
+- include_tasks: domain_join.yml
+#
+# Copy SQL server installation files
+#
+- include_tasks: copy.yml
+#
+# Install SQL pre-requisit software
+#
+- include_tasks: pre_reqs.yml
+#
+# Install SQL server & Management Studio
+#
+- include_tasks: install_sql.yml
+

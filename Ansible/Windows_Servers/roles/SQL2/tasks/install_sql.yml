@@ -1,0 +1,141 @@
+# This module also typically throws this error for all failure conditions:
+# PowerShell DSC resource MSFT_SqlSetup  failed to execute Set-TargetResource functionality with error message: 
+# System.Exception: Test-TargetResource returned false after calling Set-TargetResource.
+#
+#
+# This document can also be useful to troubleshoot issues with DSC modules
+# https://docs.microsoft.com/en-us/powershell/dsc/troubleshooting 
+#
+# In particular completing these steps:
+# https://docs.microsoft.com/en-us/powershell/dsc/troubleshooting#gathering-events-from-a-single-dsc-operation
+# then re-running a failing PowershellDSC job can help you find the source of your error
+#
+- name: Install SQL Server
+  win_dsc:
+    resource_name: SQLSetup
+    Action: Install
+    UpdateEnabled: True
+    SourcePath: "{{ mssql_installation_path }}"
+    InstanceName: "{{ mssql_instance_name }}"
+    InstallSharedDir: "{{ mssql_installshared_path }}"
+    InstallSharedwowDir: "{{ mssql_installsharedwow_path }}"
+    InstanceDir: "{{ mssql_instance_path }}"
+    InstallSQLDataDir: "{{ mssql_sqlinstalldata_path }}"
+    SQLUserDBDir: "{{ mssql_sqluserdata_path }}"
+    SQLUserDBLogDir: "{{ mssql_sqluserlog_path }}"
+    SQLTempDBDir: "{{ mssql_sqltempDB_path }}"
+    SQLTempDBLogDir: "{{ mssql_sqltempDBlog_path }}"
+    Features: "{{ mssql_features }}"
+    SQLCollation: "{{ mssql_collation }}"
+    BrowserSvcStartupType: "{{ mssql_browsersvc_mode }}"
+    SuppressReboot: "{{ mssql_suppress_reboot }}"
+    #
+    # Service Accounts
+    #
+    # If the type of the DSC resource option is a PSCredential then 
+    # there needs to be 2 options set in the Ansible task definition 
+    # suffixed with _username and _password. So we will be providing 
+    # two options for these normally single option items.
+    #
+    # SQL Service Account
+    SQLSvcAccount_username: "{{ netbios_domain }}\\{{ mssql_sqlsvc_account }}"
+    SQLSvcAccount_password: "{{ mssql_sqlsvc_password }}"
+    # SQL Agent Service Account
+    AgtSvcAccount_username: "{{ netbios_domain }}\\{{ mssql_agentsvc_account }}"
+    AgtSvcAccount_password: "{{ mssql_agentsvc_password }}"
+    # SQL Analysis Services Account
+    ASSvcAccount_username: "{{ netbios_domain }}\\{{ mssql_sqlsvc_account }}"
+    ASSvcAccount_password: "{{ mssql_sqlsvc_password }}"
+
+    # Used when installing on a network path, comment out 
+    # SourceCredential_username: "{{ ansible_user }}"
+    # SourceCredential_password: "{{ ansible_password }}"
+
+    # System Admins 
+    SQLSysAdminAccounts: "{{ netbios_domain }}\\{{ mssql_sqlsvc_account }}"
+    # Analysis Services Admins (if installed)
+    ASSysAdminAccounts: "{{ netbios_domain }}\\{{ mssql_agentsvc_account }}"
+  tags: install_sql
+#
+# Install SQL Server Management Studio
+#
+- name: Install SQL Server Management Studio
+  ansible.windows.win_shell: |
+    $media_path = "C:\Software\SSMS\SSMS-Setup-ENU.exe"
+    $install_path = "$env:SystemDrive\SSMSto"
+    $params = "/Install /Quiet SSMSInstallRoot=`"$install_path`""
+    Start-Process -FilePath $media_path -ArgumentList $params -Wait
+
+
+
+# Firewall configuration
+#
+# This needs to be added to GPOs
+#
+#- name: Firewall | Allow Database Engine for instance
+#  win_dsc:
+#    resource_name: xFirewall
+#    Name: "SQL Server Database Engine instance {{ mssql_instance_name }}"
+#    Program: sqlservr.exe 
+#    Ensure: present
+#    Enabled: True
+#    Profile: "Domain"
+#    Direction: "Inbound"
+#    Action: Allow
+#    Description: "Allows the Database Engine to access the network"  
+#  tags: configure_firewall
+#
+#- name: Firewall | Allow SQLBrowser for instance
+#  win_dsc:
+#    resource_name: xFirewall
+#    Name: "SQL Server Browser instance {{ mssql_instance_name }}"
+#    Service: SQLBrowser
+#    Ensure: present
+#    Enabled: True
+#    Profile: "Domain"
+#    Direction: "Inbound"
+#    Action: Allow
+#    Description: "Allows the SQL Server Browser to access the network"  
+#  tags: configure_firewall
+
+# Begin SQL Server configuration
+#- name: Enable TCP Connectivity
+#  win_dsc:
+#    resource_name: SqlServerNetwork
+#    InstanceName: "{{ mssql_instance_name }}"
+#    ProtocolName: tcp
+#    TcpPort: "{{ mssql_port }}"
+#    IsEnabled: True
+#    RestartService: True
+#  tags: configure_sql
+
+#- name: Adjust Max Server Memory to {{ mssql_max_server_memory }}
+#  when: mssql_max_server_memory is defined
+#  win_dsc:
+#    resource_name: SqlServerConfiguration 
+#    InstanceName: "{{ mssql_instance_name }}"
+#    ServerName: "{{ ansible_hostname }}"
+#    OptionName: max server memory (MB)
+#    OptionValue: "{{ mssql_max_server_memory }}"
+#    RestartService: False
+#  tags: configure_sql
+
+#- name: Adjust Min Server Memory to {{ mssql_min_server_memory }}
+#  when: mssql_min_server_memory is defined
+#  win_dsc:
+#    resource_name: SqlServerConfiguration 
+#    ServerName: "{{ ansible_hostname }}"
+#    InstanceName: "{{ mssql_instance_name }}"
+#    OptionName: min server memory (MB)
+#    OptionValue: "{{ mssql_min_server_memory }}"
+#  tags: configure_sql
+
+#- name: Adjust Max Degree of Parallelism
+#  when: mssql_max_degree_of_parallelism is defined
+#  win_dsc:
+#    resource_name: SqlServerConfiguration 
+#    ServerName: "{{ ansible_hostname }}"
+#    InstanceName: "{{ mssql_instance_name }}"
+#    OptionName: max degree of parallelism
+#    OptionValue: "{{ mssql_max_degree_of_parallelism }}"
+#  tags: configure_sql

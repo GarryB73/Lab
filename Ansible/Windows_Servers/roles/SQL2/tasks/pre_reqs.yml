@@ -1,0 +1,46 @@
+---
+#
+# Install .NET Framework
+#
+- name: Windows | Install .NET Framework Core
+  win_feature:
+    name: NET-Framework-Core
+    state: present
+#
+# Setup SQL Server Pre-Reqs
+#
+- name: Windows | Install .NET Framework 3.5
+  win_feature:
+    name: NET-Framework-Features
+    state: present
+
+- name: Windows | Install .NET Framework 4.5 Features
+  win_feature:
+    name: NET-Framework-45-Features
+    state: present
+    include_sub_features: True
+
+- name: Windows | Install Windows Process Activation Service
+  win_feature:
+    name: WAS
+    state: present
+    include_sub_features: True
+#
+#
+#
+- name: Reboot
+  ansible.windows.win_reboot:
+  when: res.reboot_required
+#
+# SQL install may fail if a pending reboot is detected
+# Assuming we are allowed to reboot this step will check for pending reboots
+# and execute a reboot, reboot activity can be controlled using the variable mssql_suppress_reboot
+#
+#- name: Ensure that a reboot is not pending
+#  when: ansible_reboot_pending
+#  debug:
+#    msg: 'Pending reboot detected'
+#  changed_when: true
+#  notify: reboot windows
+
+- meta: flush_handlers

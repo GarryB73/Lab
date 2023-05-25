@@ -9,16 +9,24 @@
 #
 # Configure the secondary domain controller
 #
-#- hosts: Secondary_Domain
-#  roles:
-#  - SDC
+- hosts: Secondary_Domain
+  gather_facts: False
+  roles:
+  - SDC
 # 
 # Domain join and install sql server
 #
-- hosts: SQL
+- hosts: SQL1
   gather_facts: False
   roles:
-   - SQL
+   - SQL1
+   # 
+# Domain join and install sql server
+#
+- hosts: SQL2
+  gather_facts: False
+  roles:
+   - SQL2
 #   
 # Domain join and install Sharepoint Server
 #
@@ -29,7 +37,7 @@
 #
 # Domain join and install Exchange server
 #
-#- hosts: Exchange
-#  gather_facts: False
-#  roles:
-#   - Exchange
+- hosts: Exchange
+  gather_facts: False
+  roles:
+   - Exchange

@@ -1,0 +1,9 @@
+---
+#
+# Initiate data disks
+#
+- include_tasks: initiate_disks.yml
+#
+# Build Microsoft Active Directory
+#
+- include_tasks: build_domain.yml

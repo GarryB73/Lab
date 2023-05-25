@@ -12,8 +12,8 @@
 #  ansible.windows.win_dns_client:
 #    adapter_names: Ethernet
 #    dns_servers:
-#    - '2001:db8::2'
-#    - '2001:db8::3'
+#    - '2000:100:0:100::a'
+#    - '2000:100:0:100::b'
 
 - name: Change the hostname
   ansible.windows.win_hostname:

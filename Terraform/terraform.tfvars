@@ -54,7 +54,7 @@ SQLServer2_mem = 4096
 # Microsoft SharePoint Server settings
 #
 SPServer_name = "testsp001"
-SPServer_IPv4 = "192.168.158.31"
+SPServer_IPv4 = "192.168.158.30"
 SPServer_IPv6 = "2000:100:0:100::2a"
 SPServer_cpu_num = 2
 SPServer_mem = 4096
@@ -62,7 +62,7 @@ SPServer_mem = 4096
 # Microsoft Exchange Server settings
 #
 EXCServer_name = "testexc001"
-EXCServer_IPv4 = "192.168.158.41"
+EXCServer_IPv4 = "192.168.158.40"
 EXCServer_IPv6 = "2000:100:0:100::3a"
 EXCServer_cpu_num = 2
 EXCServer_mem = 4096
@@ -70,7 +70,7 @@ EXCServer_mem = 4096
 # Windows File Server settings
 #
 FILServer_name = "testfil001"
-FILServer_IPv4 = "192.168.158.51"
+FILServer_IPv4 = "192.168.158.50"
 FILServer_IPv6 = "2000:100:0:100::4a"
 FILServer_cpu_num = 2
 FILServer_mem = 4096
@@ -78,7 +78,7 @@ FILServer_mem = 4096
 # Windows Print Server settings
 #
 PRTerver_name = "testwsus001"
-PRTServer_IPv4 = "192.168.158.52"
+PRTServer_IPv4 = "192.168.158.51"
 PRTServer_IPv6 = "2000:100:0:100::4b"
 PRTServer_cpu_num = 2
 PRTServer_mem = 4096
@@ -86,7 +86,7 @@ PRTServer_mem = 4096
 # Microsoft Windows Update Server settings
 #
 WSUSServer_name = "testwsus001"
-WSUSServer_IPv4 = "192.168.158.53"
+WSUSServer_IPv4 = "192.168.158.52"
 WSUSServer_IPv6 = "2000:100:0:100::4c"
 WSUSServer_cpu_num = 2
 WSUSServer_mem = 4096
