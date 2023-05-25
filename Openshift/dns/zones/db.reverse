@@ -1,0 +1,23 @@
+$TTL    604800
+@       IN      SOA     ocp-svc.test.co.uk. contact.test.console.uk (
+                  1     ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800     ; Minimum
+)
+
+  IN      NS      ocp-svc.test.co.uk.
+
+1      IN    PTR    ocp-svc.test.co.uk.
+1      IN    PTR    api.lab.test.co.uk.
+1      IN    PTR    api-int.lab.test.co.uk.
+;
+210    IN    PTR    ocp-bootstrap.lab.test.co.uk.
+;
+211    IN    PTR    ocp-cp-1.lab.test.console.uk.
+212    IN    PTR    ocp-cp-2.lab.test.console.uk.
+213    IN    PTR    ocp-cp-3.lab.test.console.uk.
+;
+214    IN    PTR    ocp-w-1.lab.test.console.uk.
+215    IN    PTR    ocp-w-2.lab.test.console.uk.

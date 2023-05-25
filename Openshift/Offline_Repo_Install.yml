@@ -1,0 +1,241 @@
+# Creation of offline repository
+#
+# Download the openshift installer (https://)
+#
+wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-install-linux.tar.gz
+#
+# Copy pull secret
+#
+vi pull-secret
+#
+# paste content of the pull-secret from redhat and save
+#
+# Download openshit client
+#
+wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-client-linux.tar.gz
+#
+# Download and install JQ binary (https://stedolan.github.io/jq/download/)
+#
+wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+#
+# Change the files to be executable
+#
+chmod -x jq-linux64
+#
+# Move to user local bin jq 
+#
+sudo mv jq-linux64 /usr/local/bin/jq
+#
+# Extract the installer and client to local bin
+#
+sudo tar zxf openshift-install-linux.tar.gz -C /usr/local/bin
+sudo tar zxf openshift-client-linux.tar.gz -C /usr/local/bin
+#
+# Check all the versions
+#
+openshift-install version
+oc version
+kubectl version
+#
+# Install Podman - Ubuntu (https://podman.io/getting-started/installation)
+#
+sudo apt-get -y update
+sudo apt-get -y install podman
+# RHEL 8
+#sudo yum module enable -y container-tools:rhel8
+#sudo yum module install -y container-tools:rhel8
+#
+# Install Apache Tools
+#
+sudo apt install -y apache2-utils
+#
+# Create directory for the registry 
+#
+sudo mkdir -p /opt/registry/{auth,certs,data}
+#
+# Generate new certificates
+#
+# Generate new key
+#
+openssl genrsa 2048 > registry.key
+#
+# Generate certificate request
+#
+openssl req -new -key registry.key > registry.csr
+UK
+London
+London
+default
+default
+common name - www.test.co.uk
+default
+no password
+#
+# Generate a self-signed cert
+#
+openssl x509 -in registry.csr -out registry.crt -req -signkey registry.key -days 365 
+#
+# Copy over the certs
+#
+sudo cp registry.key /opt/registry/certs
+sudo cp registry.crt /opt/registry/certs
+#
+# Check permissions on registry.key, should be 400
+#
+sudo chmod 400 registry.key
+#
+# Move the crt to share CA's
+#
+sudo cp registry.crt /usr/share/ca-certificates
+#
+# Enable certificate
+#
+sudo dpkg-reconfigure ca-certificates
+# - Yes to trust new cert
+# - Select new certificate and OK
+#
+# Open firewall
+#
+#
+sudo ufw status # should return inactive
+sudo ufw allow 22/tcp
+sudo ufw allow 5000/tcp
+sudo ufw enable # select Y to confirm
+#
+# create password to log into registry
+#
+cd /opt/registry/auth/
+sudo htpasswd -bBc htpasswd repo Pa55word
+#
+# start container
+#
+sudo podman run -d --name registry -p 5000:5000 \
+-v /opt/registry/data:/var/lib/registry:z \
+-v /opt/registry/auth:/auth:z \
+-e "REGISTRY_AUTH=htpasswd" \
+-e "REGISTRY_AUTH_HTPASSWD_REALM=Registry" \
+-e "REGISTRY_HTTP_SECRET=ALongRandomSecretForRegistry" \
+-e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd \
+-v /opt/registry/certs:/certs:z \
+-e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/registry.crt \
+-e REGISTRY_HTTP_TLS_KEY=/certs/registry.key \
+docker.io/library/registry:2
+#
+# confirm container is running
+#
+sudo podman ps
+#
+# update the host name
+#
+sudo vi /etc/hosts
+127.0.0.1 localhost registry repo.test.co.uk
+#
+# Check website
+#
+curl -u repo:Pa55word -k https://repo.test.co.uk:5000
+#
+# check the catalog
+#
+curl -u repo:Pa55word -k https:..repo.test.co.uk:5000/v2_catalog
+#
+# mirror the repo
+#
+export BUILDNUMBER=$(curl -s https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/release.txt | grep 'Name:' | awk '{print $NF}')
+#
+# check build number
+#
+echo $BUILDNUMBER
+#
+# set the following environment variables
+#
+export REGISTRY_HOME="/opt/registry"
+export OCP_RELEASE="4.12.3-x86_64"
+export LOCAL_REGISTRY="repo.test.co.uk:5000"
+export RELEASE_NAME="ocp_release"
+export LOCAL_REPO="ocp4/openshift4"
+export UPSTREAM_REPO="openshift-release-dev"
+export LOCAL_SECRET_JSON="${HOME}/pull-secret-2.json"
+#
+# encode credentials
+#
+export REG_SECRET='echo -n repo:Pa55word | base64 -w0'
+#
+# create pull secret for offline repo 
+#
+sudo cat pull-secret | jq '.auths += {"repo.test.co.uk:5000": {"auth": "REG_SECRET"."email":"garry.baker@actica.net"}}' | sed "s/REG_SECRET/$REG_SECRET/" >pull-secret-2.json
+#
+#
+#
+
+
+
+
+
+
+
+
+
+
+
+# Install & configure Apache Web Server
+#
+dnf install httpd -y
+#
+# Change default listen port to 8080 in httpd.conf
+#
+sed -i 's/Listen 80/Listen 0.0.0.0:8080/' /etc/httpd/conf/httpd.conf
+#
+# Configure the firewall for Web Server traffic
+#
+firewall-cmd --add-po rt=8080/tcp --zone=internal --permanent
+firewall-cmd --reload
+#
+# Enable and start the service
+#
+systemctl enable httpd
+systemctl start httpd
+systemctl status httpd
+#
+# Create directory for the registry 
+#
+sudo mkdir -p /opt/registry/{auth,certs,data}
+#
+# Copy over the certs
+#
+cd /opt/registry/certs
+#
+# Generate new certificates
+#
+# Generate new key
+#
+openssl genrsa 2048 > registry.key
+#
+# Generate certificate request
+#
+openssl req -new -key registry.key > registry.csr
+UK
+London
+London
+default
+default
+common name - www.test.co.uk
+default
+no password
+#
+# Generate a self-signed cert
+#
+openssl x509 -in registry.csr -out registry.crt -req -signkey registry.key -days 365 
+#
+# 
+#
+sudo podman run -d --name poc-registry -p 5000:5000 \
+-v /opt/registry/data:/var/lib/registry:z \
+-v /opt/registry/auth:/auth:z \
+-e "REGISTRY_AUTH=htpasswd" \
+-e "REGISTRY_AUTH_HTPASSWD_REALM=Registry" \
+-e "REGISTRY_HTTP_SECRET=ALongRandomSecretForRegistry" \
+-e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd \
+-v /opt/registry/certs:/certs:z \
+-e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/registry.crt \
+-e REGISTRY_HTTP_TLS_KEY=/certs/registry.key \
+docker.io/library/registry:2
